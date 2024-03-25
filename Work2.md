@@ -65,8 +65,8 @@ RESTAPI の処理によって得られた結果は JSON Format による応答�
 ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します。
 <img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8">
 デフォルトで生成した表がこちらになります。
-<img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3463d416-b6b8-4848-b0f9-ce03ffc36c59">
 
+<table><thead><tr><th>RecommendedSecurityUpdate</th><th>RecommendedSecurityUpdateId</th><th>SoftwareVendor</th><th>SoftwareName</th><th>SoftwareVersion</th></tr></thead><tbody><tr><td>November 2023 Security Updates</td><td>5032006</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>January 2024 Security Updates</td><td>5033919</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>December 2023 Security Updates</td><td>5033369</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>November 2023 Security Updates</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>October 2023 Security Updates (Last updated at November 2023)</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>January 2024 Security Updates</td><td>5034121</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>February 2024 Security Updates</td><td>5034766</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>March 2024 Security Updates</td><td>5035854</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr></tbody></table>
 
 
 
