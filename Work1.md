@@ -51,7 +51,9 @@ MDC のアラートを大量に発生させないように、``Resource Manager`
 ロジックアプリの実行履歴から、入力と出力を確認してみましょう。
 <img width="1102" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e6b9720d-2663-4943-bcd1-a3319a829d3b">
 
-Q. Sentinel のインシデントからどのような情報が出力されましたか？
+## 確認ポイント
+> Sentinel のインシデントからどのような情報が出力されましたか？
+
 - インシデント名はどのフィールドに含まれていますか？
 - インシデントの詳細は？
 - 重要度は？
