@@ -118,8 +118,11 @@ Defender XDR に Advanced Hunting した結果を通知します。<BR>
 <img width="832" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a8be1e34-7d29-4e25-9536-6a171451c4da">
 - テストして Teams チャネル宛に通知が行われることを確認して下さい
 
-## 6. インシデント情報から Advanced Hunting にホスト名が反映されるように更新する
-> 一連の確認が出来れば、最後にエンティティ情報より
+## 6. 振り返り
+> お疲れさまでした！
+- この演習では以下を実践しました。
+ - 標準コネクタを用いて、Defender XDR にクエリーを実施する
+ - クエリーの結果から JSON を HTML に成型する
+ - HTML をメール通知 / Team 通知する
 
-
-
+次の章に移ってください！
