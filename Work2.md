@@ -76,24 +76,18 @@ DeviceTvmSoftwareVulnerabilities
 - デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれています。項目名も日本語化しましょう
 - ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します
 <img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8"><BR>
-- デフォルトで生成した表がこちらになります
-
-<table>
-<thead><tr><th>RecommendedSecurityUpdate</th><th>RecommendedSecurityUpdateId</th><th>SoftwareVendor</th><th>SoftwareName</th><th>SoftwareVersion</th></tr></thead><tbody><tr><td>November 2023 Security Updates</td><td>5032006</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>January 2024 Security Updates</td><td>5033919</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>December 2023 Security Updates</td><td>5033369</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>November 2023 Security Updates</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>October 2023 Security Updates (Last updated at November 2023)</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>January 2024 Security Updates</td><td>5034121</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>February 2024 Security Updates</td><td>5034766</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>March 2024 Security Updates</td><td>5035854</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr></tbody>
-</table>
-
-HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう。
+- HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5bdb53c5-c660-48d3-8c7a-815422cd197f)
 
-ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！
+- ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！
 <img width="851" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9d61177e-2236-4451-bfe8-f97f60651c76">
 
 
 ## 5. メール通知 or Teams 通知
 > 最後に通知してみましょう
 
-Defender XDR に Advanced Hunting した結果を通知します。<BR>
-メールコネクタ or Teams コネクタお好きな方法を選んでください。
+- Defender XDR に Advanced Hunting した結果を通知します
+ - メールコネクタ or Teams コネクタお好きな方法を選んでください。
 
 ### 5.1 メール送信 (Office 365 コネクタ)
 - 標準コネクタから「Office 365 Outlook」を選択します
