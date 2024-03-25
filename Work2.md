@@ -12,3 +12,6 @@
 クエリー入力画面が出ればOKです。
 <img width="857" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/013fb0b4-c419-4b2c-91bc-be757cc77322"><BR>
 
+## 2. Defender XDR ハンティングクエリーを実行する
+> インシデントをトリガーにハンティングクエリーを実行します
+SSSS
