@@ -1,9 +1,18 @@
 # 演習2. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する
 > 標準コネクタを用いて、ロジックアプリを作成してみましょう
-インシデントをトリガーに、Defender XDR のハンティングクエリーを実行するロジックアプリを実践してみましょう
+
+Defender XDR のハンティングクエリーを実行するロジックアプリを実践してみましょう
+
+## 事前準備 空のロジックアプリを作成する　
+- 空のロジックアプリから作成します。Sentinel のオートメーション、もしくはロジックアプリから作成して下さい。
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99089e58-8f74-4e19-a080-a2626e386c21)
+- ロジックアプリが作成されましたら、「繰り返し」を選択します（crond）
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3548efa0-2404-48dd-95e3-bc2f3e24edab)
+- 「繰り返し」の設定のパラメータを変更して、1 時間おきに実行するようにします
+<img width="1074" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/6ad559fc-0c9d-4994-85df-80cf786d629a">
 
 ## 1. ロジックアプリに「Defender ATP」コネクタを追加する
-演習 1 で作成したロジックアプリに Defender XDR コネクタを追加します。<BR>
+- ロジックアプリのフロー Defender XDR コネクタを追加します。<BR>
 <img width="1061" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3cd0e8ff-afc1-45d2-a7af-c81b4ef8c30f"><BR>
 **「詳細な検索」**を選択します
 <img width="510" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/aa2dc48c-ee35-47a5-9fb9-d11b10481d68"><BR>
@@ -73,14 +82,41 @@ RESTAPI の処理によって得られた結果は JSON Format による応答�
 HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5bdb53c5-c660-48d3-8c7a-815422cd197f)
 
+ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！
+<img width="851" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9d61177e-2236-4451-bfe8-f97f60651c76">
+
+
 ## 5. メール通知 or Teams 通知
 > 最後に通知してみましょう
 
-Defender XDR に Advanced Hunting した結果を通知します。
+Defender XDR に Advanced Hunting した結果を通知します。<BR>
 メールコネクタ or Teams コネクタお好きな方法を選んでください。
 
+### 5.1 メール送信 (Office 365 コネクタ)
+- 標準コネクタから「Office 365 Outlook」を選択します
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/13e36620-986a-4c0f-b362-257756c315b6)
+- 「メールの送信」を選択します
+　- サインインはメール送信元ユーザーで Entra ID 認証を行って下さい 
+<img width="870" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99171718-cddc-4ce4-bd31-570e8e045f50">
+- 「メールの送信」から、送信先メールアドレス、メールタイトルなどを設定します
+ - メール本文に、前項目で設定した JSON2HTML の BODY を選択して下さい
+<img width="1062" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a471e79f-b14c-4d86-82da-13d4edd964f5">
+- テストしてメール通知が行われることを確認して下さい
+<img width="1097" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4d7bf3e0-d802-439d-a0ee-004574070a72">
 
+### 5.2 Microsoft Teams 送信 (Office 365 コネクタ)
+-　標準コネクタから「Microsoft Teams」を選択します
+<img width="888" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/79b30b8c-e71f-4e1d-a7ab-3a604e78a9e7">
+- 「チャットやチャネルにメッセージを投稿する」を選択
+　-　Teams に投稿するユーザーで Entra ID 認証を行います 
+<img width="877" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/7fba0f8a-11bd-41dc-85d6-fcf89a5f37e3">
+- 投稿先の Teams チャネル、メッセージ内容を編集します
+ - 本文に、前項目で設定した JSON2HTML の BODY を選択して下さい
+<img width="832" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a8be1e34-7d29-4e25-9536-6a171451c4da">
+- テストして Teams チャネル宛に通知が行われることを確認して下さい
 
+## 6. インシデント情報から Advanced Hunting にホスト名が反映されるように更新する
+> 一連の確認が出来れば、最後にエンティティ情報より
 
 
 
