@@ -13,7 +13,7 @@ Microsoft Sentinel 画面から「オートメーション」を選択し、「�
 > プレイブック名はロジックアプリの名前になります。ロジックアプリは数が増えるので、あらかじめ命名規則を定義しておいてください。
 
 参考: 命名規則例
-logic-[目的]-[リージョン]
+logic-[目的]-[リージョン]<BR>
 ``logic-Sentinel-Workshop1-JE``
 
 <img width="339" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3b254c61-12f0-4291-b554-a698649689dc">
