@@ -7,21 +7,21 @@
 
 - Microsoft Sentinel の環境を自テナントに有すること
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
-  -   本演習では Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートによる効果を想定しています。
+  - 本演習では Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートによる効果を想定しています。
 
 # 演習コンテンツ
 > ワークショップのコンテンツはこちらです。
 > 
 1. Sentinel インシデントからロジックアプリに何が渡せるのかを見てみよう
 2. 標準コネクタを用いて試してみよう
-  1. Sentinel インシデントをトリガーとして、Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
-  2. ハンティングした結果を成型して通知してみよう
+ 1. Sentinel インシデントをトリガーとして、Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
+ 2. ハンティングした結果を成型して通知してみよう
 3. RESTAPI を使ってみよう
-  1. Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
-  2. ハンティングした結果を成型して通知してみよう
+ 1. Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
+ 2. ハンティングした結果を成型して通知してみよう
 4. JSON アレイを処理してみよう
-  1. JSON アレイって何？
-  2. For Each 処理を使ってみよう
+ 1. JSON アレイって何？
+ 2. For Each 処理を使ってみよう
 
 # 免責事項
 > 本レポジトリの演習は課金が発生します。
