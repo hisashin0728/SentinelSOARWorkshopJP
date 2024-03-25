@@ -14,12 +14,12 @@
 > 
 1. Sentinel インシデントからロジックアプリに何が渡せるのかを見てみよう
 2. 標準コネクタを用いて試してみよう
-  - Sentinel インシデントをトリガーとして、Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
-  - ハンティングした結果を成型して通知してみよう
-3.RESTAPI を使ってみよう
+ - Sentinel インシデントをトリガーとして、Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
+ - ハンティングした結果を成型して通知してみよう
+3. RESTAPI を使ってみよう
   - Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
   - ハンティングした結果を成型して通知してみよう
-4.JSON アレイを処理してみよう
+4. JSON アレイを処理してみよう
   - JSON アレイって何？
   - For Each 処理を使ってみよう
 
