@@ -40,7 +40,19 @@ Sentinel 画面に戻り、「オートメーション」から「オートメ�
 
 # 3. Microsoft Defender for Cloud (MDC) からサンプルアラートを発砲してみる
 > MDC のサンプルアラートより、ロジックアプリが起動されるかを確認する
-MDC のサンプルアラートから、サンプルアラートを作成します。
+MDC のサンプルアラートから、サンプルアラートを作成します。<BR>
+MDC のアラートを大量に発生させないように、``Resource Manager`` のみに絞るなど注意して下さい。
 <img width="982" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4de9401d-0ce8-42ea-bdc8-da81321886d3">
 
-# 4. ロジックアプリを確認
+# 4. ロジックアプリを確認する
+> トリガーで発砲したロジックアプリを確認しましょう
+ロジックアプリの実行履歴から、実行履歴を確認します。
+<img width="1068" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/81bf8c11-8235-49e4-8f41-5dd778ea63fb">
+ロジックアプリの実行履歴から、入力と出力を確認してみましょう。
+<img width="1102" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e6b9720d-2663-4943-bcd1-a3319a829d3b">
+
+Q. Sentinel のインシデントからどのような情報が出力されましたか？
+- インシデント名はどのフィールドに含まれていますか？
+- インシデントの詳細は？
+- 重要度は？
+- 他にどのような情報が含まれていますか？
