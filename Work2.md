@@ -13,20 +13,21 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 
 ## 1. ロジックアプリに「Defender ATP」コネクタを追加する
 - ロジックアプリのフロー Defender XDR コネクタを追加します。<BR>
-<img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33">
+<img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33"><BR>
 - **「詳細な検索」**を選択します
-<img width="885" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/dd4b8824-8f0c-4736-bfaf-14d4d22969b1">
+<img width="885" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/dd4b8824-8f0c-4736-bfaf-14d4d22969b1"><BR>
 - テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
 <img width="513" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/75305c0c-f2a5-4485-8d13-a862a2d4dc9d"><BR>
-クエリー入力画面が出ればOKです。
-<img width="901" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9f6f9a6e-56b4-4c84-8555-0da4a676c8b9">
-<BR>
+- クエリー入力画面が出ればOKです<BR>
+<img width="901" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9f6f9a6e-56b4-4c84-8555-0da4a676c8b9"><BR>
 
 ## 2. Defender XDR Advanced Hunting Query を用意する
 > インシデントをトリガーにハンティングクエリーを実行します
-定期的に Defender XDR Advanced Hunting Query を実行して通知します。以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！
+定期的に Defender XDR Advanced Hunting Query を実行して通知します。<BR>
+以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！<BR>
 
-- MDTM 脆弱性情報から、高危険度の脆弱性があり、セキュリティ更新プログラムがある情報を抽出する
+- クエリーイメージ
+ - MDTM 脆弱性情報から、高危険度の脆弱性があり、セキュリティ更新プログラムがある情報を抽出する
  - 「セキュリティ更新プログラム」があるのだから、パッチ適用しようよ！をアピール
  - CVE 情報ではなく、パッチ適用を推進するための情報を抽出するイメージ
 
@@ -42,41 +43,40 @@ DeviceTvmSoftwareVulnerabilities
 ## 3. ロジックアプリにクエリーを設定する
 > ロジックアプリのフローから Defender XDR Advanced Hunting Query を設定しましょう
 
-- ロジックアプリのコネクタにクエリーを設定してみましょう。<BR>
- - インシデントトリガーでの実行を試す前に、まずは手動でクエリーを投入し、正しく動作するかどうかを確認することをお勧めします。
+- ロジックアプリのコネクタにクエリーを設定してみましょう
+ - インシデントトリガーでの実行を試す前に、まずは手動でクエリーを投入し、正しく動作するかどうかを確認することをお勧めします
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bb98515f-12bc-4999-a92a-1e2a9f5c8041)
 
-- 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます<BR>
+- 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/051a56b4-56c7-4030-a6c3-2f48cb9ff371)
 
-成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます
+- 成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/88d298d7-d22c-4bd6-8ef0-d43fd2715f58)
 
 
 ## 4. クエリー結果を成型する
 > ロジックアプリの結果を成型して見やすくする
 
-RESTAPI の処理によって得られた結果は JSON Format による応答で得られます。<BR>
-クエリー結果を事後のアクションとしてメール通知、Teams 通知する場合、このままでは既読性が悪く運用に向きません。<BR>
-通知し易いように HTML 変換しちゃいましょう!
+- RESTAPI の処理によって得られた結果は JSON Format による応答で得られます
+ - クエリー結果を事後のアクションとしてメール通知、Teams 通知する場合、このままでは既読性が悪く運用に向きません
+ - 通知し易いように HTML 変換しちゃいましょう!
 
 ### 4.1 ロジックアプリのフローに「HTML テーブルの作成」を追加する
-ロジックアプリの追加フローボタンを押して、「ビルトイン」-> 「データ操作」から、「**HTML テーブルの作成**」を選択します。
-<img width="798" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c728cc74-8fe3-4557-afa0-e510a46b0960">
-前のフローで実施したクエリー結果 **Results** を反映させて、保存します。
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e02f8231-2642-4269-9f96-3763d75823cf)
-<BR>
-一度、ロジックアプリの履歴から実行してテストして下さい。
-クエリーは HTML テーブルに変換されましたか？<BR>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/59cdd836-a193-4d6d-bf89-052101bc71f6)
+- ロジックアプリの追加フローボタンを押して、「ビルトイン」-> 「データ操作」から、「**HTML テーブルの作成**」を選択します
+<img width="798" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c728cc74-8fe3-4557-afa0-e510a46b0960"><BR>
+- 前のフローで実施したクエリー結果 **Results** を反映させて、保存します。
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e02f8231-2642-4269-9f96-3763d75823cf)<BR>
+- 一度、ロジックアプリの履歴から実行してテストして下さい。
+ - クエリーは HTML テーブルに変換されましたか？
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/59cdd836-a193-4d6d-bf89-052101bc71f6)<BR>
 
 ### 4.2 HTML テーブルをカスタマイズする
 > 美的センスを高めてカスタマイズしましょう！
 
-デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれています。項目名も日本語化しましょう。<BR>
-ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します。
-<img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8">
-デフォルトで生成した表がこちらになります。
+- デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれています。項目名も日本語化しましょう
+- ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します
+<img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8"><BR>
+- デフォルトで生成した表がこちらになります
 
 <table>
 <thead><tr><th>RecommendedSecurityUpdate</th><th>RecommendedSecurityUpdateId</th><th>SoftwareVendor</th><th>SoftwareName</th><th>SoftwareVersion</th></tr></thead><tbody><tr><td>November 2023 Security Updates</td><td>5032006</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>January 2024 Security Updates</td><td>5033919</td><td>microsoft</td><td>.net_framework</td><td>4.8.1.0</td></tr><tr><td>December 2023 Security Updates</td><td>5033369</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>November 2023 Security Updates</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>October 2023 Security Updates (Last updated at November 2023)</td><td>5032192</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>January 2024 Security Updates</td><td>5034121</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>February 2024 Security Updates</td><td>5034766</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr><tr><td>March 2024 Security Updates</td><td>5035854</td><td>microsoft</td><td>windows_11</td><td>10.0.22000.2538</td></tr></tbody>
