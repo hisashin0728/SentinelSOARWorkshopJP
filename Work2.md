@@ -61,7 +61,7 @@ RESTAPI の処理によって得られた結果は JSON Format による応答�
 通知し易いように HTML 変換しちゃいましょう!
 
 ### 4.1 ロジックアプリのフローに「HTML テーブルの作成」を追加する
-ロジックアプリの追加フローボタンを押して、「ビルトイン」-> 「データ操作」から、**「HTML テーブルの作成」を選択します。
+ロジックアプリの追加フローボタンを押して、「ビルトイン」-> 「データ操作」から、「**HTML テーブルの作成**」を選択します。
 <img width="798" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c728cc74-8fe3-4557-afa0-e510a46b0960">
 前のフローで実施したクエリー結果 **Results** を反映させて、保存します。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e02f8231-2642-4269-9f96-3763d75823cf)
