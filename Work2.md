@@ -13,17 +13,18 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 
 ## 1. ロジックアプリに「Defender ATP」コネクタを追加する
 - ロジックアプリのフロー Defender XDR コネクタを追加します。<BR>
-<img width="1061" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3cd0e8ff-afc1-45d2-a7af-c81b4ef8c30f"><BR>
-**「詳細な検索」**を選択します
-<img width="510" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/aa2dc48c-ee35-47a5-9fb9-d11b10481d68"><BR>
-テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
+<img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33">
+- **「詳細な検索」**を選択します
+<img width="885" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/dd4b8824-8f0c-4736-bfaf-14d4d22969b1">
+- テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
 <img width="513" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/75305c0c-f2a5-4485-8d13-a862a2d4dc9d"><BR>
 クエリー入力画面が出ればOKです。
-<img width="857" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/013fb0b4-c419-4b2c-91bc-be757cc77322"><BR>
+<img width="901" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9f6f9a6e-56b4-4c84-8555-0da4a676c8b9">
+<BR>
 
 ## 2. Defender XDR Advanced Hunting Query を用意する
 > インシデントをトリガーにハンティングクエリーを実行します
-MDE のインシデント検出時にアドバンスハンティングを利用する例です。以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！
+定期的に Defender XDR Advanced Hunting Query を実行して通知します。以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！
 
 - MDTM 脆弱性情報から、高危険度の脆弱性があり、セキュリティ更新プログラムがある情報を抽出する
  - 「セキュリティ更新プログラム」があるのだから、パッチ適用しようよ！をアピール
@@ -40,15 +41,17 @@ DeviceTvmSoftwareVulnerabilities
 
 ## 3. ロジックアプリにクエリーを設定する
 > ロジックアプリのフローから Defender XDR Advanced Hunting Query を設定しましょう
-ロジックアプリのコネクタにクエリーを設定してみましょう。<BR>
-インシデントトリガーでの実行を試す前に、まずは手動でクエリーを投入し、正しく動作するかどうかを確認することをお勧めします。
-<img width="715" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ada8e3dd-b638-4562-b66c-b07bce0a985a"><BR>
-ロジックアプリのテストは「過去発生した履歴」を選択することで、再送信が出来ます。<BR>
-演習 1 で実行したアラートなどを用いて発砲テストを行って下さい。
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/21870da7-46aa-435a-8652-4d2a21455483)
+
+- ロジックアプリのコネクタにクエリーを設定してみましょう。<BR>
+ - インシデントトリガーでの実行を試す前に、まずは手動でクエリーを投入し、正しく動作するかどうかを確認することをお勧めします。
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bb98515f-12bc-4999-a92a-1e2a9f5c8041)
+
+- 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/051a56b4-56c7-4030-a6c3-2f48cb9ff371)
 
 成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e26973f7-c4a9-4fac-b13d-945d12a7c8e1)
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/88d298d7-d22c-4bd6-8ef0-d43fd2715f58)
+
 
 ## 4. クエリー結果を成型する
 > ロジックアプリの結果を成型して見やすくする
