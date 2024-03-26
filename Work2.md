@@ -112,22 +112,22 @@ DeviceTvmSoftwareInventory
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/13e36620-986a-4c0f-b362-257756c315b6)
 - 「メールの送信」を選択します
 　- サインインはメール送信元ユーザーで Entra ID 認証を行って下さい 
-<img width="870" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99171718-cddc-4ce4-bd31-570e8e045f50">
+<img width="870" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99171718-cddc-4ce4-bd31-570e8e045f50"><p>
 - 「メールの送信」から、送信先メールアドレス、メールタイトルなどを設定します
  - メール本文に、前項目で設定した JSON2HTML の BODY を選択して下さい
-<img width="1062" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a471e79f-b14c-4d86-82da-13d4edd964f5">
+<img width="1062" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a471e79f-b14c-4d86-82da-13d4edd964f5"><p>
 - テストしてメール通知が行われることを確認して下さい
-<img width="1097" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4d7bf3e0-d802-439d-a0ee-004574070a72">
+<img width="1097" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4d7bf3e0-d802-439d-a0ee-004574070a72"><p>
 
 ### 5.2 Microsoft Teams 送信 (Office 365 コネクタ)
 -　標準コネクタから「Microsoft Teams」を選択します
-<img width="888" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/79b30b8c-e71f-4e1d-a7ab-3a604e78a9e7">
+<img width="888" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/79b30b8c-e71f-4e1d-a7ab-3a604e78a9e7"><p>
 - 「チャットやチャネルにメッセージを投稿する」を選択
 　-　Teams に投稿するユーザーで Entra ID 認証を行います 
-<img width="877" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/7fba0f8a-11bd-41dc-85d6-fcf89a5f37e3">
+<img width="877" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/7fba0f8a-11bd-41dc-85d6-fcf89a5f37e3"><p>
 - 投稿先の Teams チャネル、メッセージ内容を編集します
  - 本文に、前項目で設定した JSON2HTML の BODY を選択して下さい
-<img width="832" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a8be1e34-7d29-4e25-9536-6a171451c4da">
+<img width="832" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a8be1e34-7d29-4e25-9536-6a171451c4da"><p>
 - テストして Teams チャネル宛に通知が行われることを確認して下さい
 
 ## 6. 振り返り
