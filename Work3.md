@@ -160,14 +160,14 @@ DeviceTvmSoftwareVulnerabilities
 | where VulnerabilitySeverityLevel == @"High"
 | where RecommendedSecurityUpdate != ""
 | distinct RecommendedSecurityUpdate, RecommendedSecurityUpdateId, SoftwareVendor, SoftwareName, SoftwareVersion
-
+```
 ### クエリ例2 - 対象サーバーのアセット情報からソフトウェアリストを抽出する
 
 ```kql
 DeviceTvmSoftwareInventory
 | where DeviceName contains "(ホスト名)"
 | distinct SoftwareVendor,SoftwareName,SoftwareVersion
-
+```
 - ハンティングクエリーを設定する際に、**For Each 処理によって JSON アレイから分解された**JSONフィールドの情報をマッピングします
   - ロジックアプリは賢いので、For Each 処理前のプロセスである **エンティティ - ホストを取得「ホスト ホスト名」**を選択した場合でも、自動的に ``items('For_each')?['HostName']`` に変換してくれます！<p>
 
