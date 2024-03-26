@@ -13,9 +13,10 @@
 - Sentinel インシデントトリガーから得られるエンティティ情報は JSON アレイ型になっています。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/00773eba-13f8-4ddd-948d-b66a856389e4)
 - 例えば、MDE for Linux が EICAR ファイルを検知した際のエンティティ情報は以下のようになります
- - ``kind`` が ``Host`` 属性となるホスト情報（例：これを使いたい）
+ - ``kind`` が ``Host`` 属性となるホスト情報
  - ``kind`` が ``File`` 属性となるファイル名情報
  - ``kind`` が ``FileHash`` 属性となるファイルハッシュ情報
+- ここでは、後述の Advanced Hunting に使うデータとして、ホスト情報を抽出する想定としています
 
 ```
 [
@@ -71,14 +72,63 @@
   }
 ]
 ```
-- 後述のフローに用いるため、エンティティの JSON アレイ を変数として用います。
- - 「ビルトイン」-> 「変数」より、「変数を初期化する」を選択して、JSON アレイ型（種類：アレイ）を選んで、Sentinel インシデントトリガーのエンティティ情報を格納します
- - ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/f6f39fd9-76f9-4049-95f9-67c0c0d332ae)<BR>
- - 設定例
- - <img width="519" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/50334553-bc6f-4eb3-b5c7-2742e11d15d5"><BR>
- - インシデントが発生する環境をお持ちの方は、保存してインシデントをトリガーさせると、JSON アレイに格納されることが確認出来ます
- - <img width="486" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/cc371ce8-da64-48b2-8bc6-31b233e1e30b"><BR>
+- エンティティ情報からホスト情報を抽出するため、Sentinel 標準コネクタ「エンティティ - ホストを取得」を用います。
+<img width="286" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c8f55b78-c27a-4008-ba1b-8e0c29642c2e">
+- コネクタが追加されましたら、トリガーとなった Sentinel の「エンティティ」リストを適用します
+<img width="675" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4e7fb35f-f49b-4eb6-8338-8b9788659c18">
+- このコネクタを用いることで、エンティティの JSON アレイに含まれる情報のうち、``kind`` = ``Host`` 条件のものだけを抽出出来たことが分かります
+<img width="491" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3e05691d-ad16-418a-a084-3ab13fa1908e">
+
+```
+[
+  {
+    "dnsDomain": "rglnoiucbtnuzarcriubjs2azc.lx.internal.cloudapp.net",
+    "hostName": "vmlinuxcustomlog",
+    "osFamily": "Unknown",
+    "osVersion": "7.9",
+    "additionalData": {
+      "MdatpDeviceId": "95ffd3240bde37ef347cf836db74b13f85cbf185",
+      "DeviceDnsName": "vmlinuxcustomlog.rglnoiucbtnuzarcriubjs2azc.lx.internal.cloudapp.net",
+      "RiskScore": "informational",
+      "HealthStatus": "active",
+      "FirstSeenDateTime": "2023-09-04T03:29:26.736412+00:00",
+      "RbacGroupName": "Servers",
+      "DefenderAvStatus": "notSupported",
+      "OnboardingStatus": "onboarded"
+    },
+    "friendlyName": "vmlinuxcustomlog",
+    "Type": "host"
+  }
+]
+```
 
 ## 2. JSON アレイの情報を For Each ループで分解して処理させる
+> JSON アレイのエンティティ情報をループ処理させる
+- 前プロセスで Host 条件のエンティティ情報だけ抽出が出来ましたが、エンティティには複数の Host 情報が含まれる可能性があるため JSON アレイ型になっています
+- JSON アレイの情報をループ処理させるために For Each ループを用います
+ - 「ビルトイン」-> 「制御」-> 「For Each」を選択して下さい。
+- For Each 処理は JSON アレイを入れることで、JSON フィールド毎に分解されます。先に設定した JSON アレイ変数を設定しましょう
+<img width="559" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/30c9258f-38f9-498c-93a7-aac2979bced3">
+- For Each 処理をすることで、前述のJSONアレイは分解され、JSON フィールド毎に処理されます
 
+```
+  {
+    "dnsDomain": "rglnoiucbtnuzarcriubjs2azc.lx.internal.cloudapp.net",
+    "hostName": "vmlinuxcustomlog",
+    "osFamily": "Unknown",
+    "osVersion": "7.9",
+    "additionalData": {
+      "MdatpDeviceId": "95ffd3240bde37ef347cf836db74b13f85cbf185",
+      "DeviceDnsName": "vmlinuxcustomlog.rglnoiucbtnuzarcriubjs2azc.lx.internal.cloudapp.net",
+      "RiskScore": "informational",
+      "HealthStatus": "active",
+      "FirstSeenDateTime": "2023-09-04T03:29:26.736412+00:00",
+      "RbacGroupName": "Servers",
+      "DefenderAvStatus": "notSupported",
+      "OnboardingStatus": "onboarded"
+    },
+    "friendlyName": "vmlinuxcustomlog",
+    "Type": "host"
+  }
+```
 
