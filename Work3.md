@@ -3,14 +3,14 @@
 
 ## 事前準備 Sentinel のインシデントトリガーのロジックアプリを作成する　
 > インシデントトリガーのロジックアプリを作成する
-- Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します。
+- Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bf2a9e25-4554-4a2d-9168-3854cde38da8)
 <img width="423" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8604d868-6952-4340-9fe4-f3d0a77427d2">
 
 ## 1. Sentinel インシデントトリガーから得られるエンティティ情報を格納する
 > JSON アレイを理解する
 
-- Sentinel インシデントトリガーから得られるエンティティ情報は JSON アレイ型になっています。
+- Sentinel インシデントトリガーから得られるエンティティ情報は JSON アレイ型になっています<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/00773eba-13f8-4ddd-948d-b66a856389e4)
 - 例えば、MDE for Linux が EICAR ファイルを検知した際のエンティティ情報は以下のようになります
  - ``kind`` が ``Host`` 属性となるホスト情報
@@ -72,7 +72,7 @@
   }
 ]
 ```
-- エンティティ情報からホスト情報を抽出するため、Sentinel 標準コネクタ「エンティティ - ホストを取得」を用います。<p>
+- エンティティ情報からホスト情報を抽出するため、Sentinel 標準コネクタ「エンティティ - ホストを取得」を用います<p>
 <img width="286" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c8f55b78-c27a-4008-ba1b-8e0c29642c2e"><BR>
 - コネクタが追加されましたら、トリガーとなった Sentinel の「エンティティ」リストを適用します<p>
 <img width="675" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4e7fb35f-f49b-4eb6-8338-8b9788659c18"><BR>
