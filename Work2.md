@@ -24,6 +24,9 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 - テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
 <img width="513" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/75305c0c-f2a5-4485-8d13-a862a2d4dc9d"><BR>
 - クエリー入力画面が出ればOKです<BR>
+
+> クエリー欄に実際に KQL を入れて結果を得ることが出来るようになりました！
+
 <img width="901" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9f6f9a6e-56b4-4c84-8555-0da4a676c8b9"><BR>
 
 ## 2. Defender XDR Advanced Hunting Query を用意する
