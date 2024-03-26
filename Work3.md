@@ -74,6 +74,8 @@
 - 後述のフローに用いるため、エンティティの JSON アレイ を変数として用います。
  - 「ビルトイン」-> 「変数」より、「変数を初期化する」を選択して、JSON アレイ型（種類：アレイ）を選んで、Sentinel インシデントトリガーのエンティティ情報を格納します
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/f6f39fd9-76f9-4049-95f9-67c0c0d332ae)
+ - 設定例
+<img width="519" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/50334553-bc6f-4eb3-b5c7-2742e11d15d5">
  - インシデントが発生する環境をお持ちの方は、保存してインシデントをトリガーさせると、JSON アレイに格納されることが確認出来ます
 <img width="486" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/cc371ce8-da64-48b2-8bc6-31b233e1e30b">
 
