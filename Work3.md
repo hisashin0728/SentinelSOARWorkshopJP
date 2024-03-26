@@ -179,3 +179,25 @@ DeviceTvmSoftwareInventory
 
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c730b3dc-6d8d-4715-b802-b18590d3fbf1)
 
+- クエリーが設定出来ましたら、過去のトリガーを再生してテストを行って下さい
+  - エンティティのホスト情報が反映されて、Advanced Hunting Query 結果が返ってくれば成功です！
+
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/2109ab23-902a-40cb-ac83-1c7f3c6838b1)
+
+## 4. [オプション] JSON2HTML 成型 / メール通知 / Teams 通知
+> JSON -> HTML 変換、メール通知 / Teams 通知を実践してみましょう
+演習2 と同様に、得られた結果を通知しましょう!!
+
+- [JSON 結果を HTML に変換する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md#4-%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%BC%E7%B5%90%E6%9E%9C%E3%82%92%E6%88%90%E5%9E%8B%E3%81%99%E3%82%8B)
+- [O365 コネクタを用いてメール通知](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md#51-%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
+- [Microsoft Teams コネクタを用いてチャネルに投稿](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md#52-microsoft-teams-%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
+
+## 5. 振り返り
+> お疲れ様でした！
+
+- この演習では以下を実践していただきました
+  - Microsoft Sentinel コネクタのインシデント情報から JSON アレイを抽出する
+  - JSON アレイを処理するために For Each 処理を用いる
+  - For Each 処理で分解された個々の JSON 情報を元に Defender ATP コネクタを用いてクエリーを実行する
+  - [オプション] 得られた結果を成型して外部通知する
+- まだまだあるよ！次の演習もやってみよう！
