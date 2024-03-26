@@ -133,8 +133,8 @@ DeviceTvmSoftwareInventory
 ## 6. 振り返り
 > お疲れさまでした！
 - この演習では以下を実践しました。
- - 標準コネクタを用いて、Defender XDR にクエリーを実施する
- - クエリーの結果から JSON を HTML に成型する
- - HTML をメール通知 / Team 通知する
+  - 標準コネクタを用いて、Defender XDR にクエリーを実施する
+  - クエリーの結果から JSON を HTML に成型する
+  - HTML をメール通知 / Team 通知する
 
 次の[演習 Sentinel インシデントトリガーからエンティティ属性を抽出して、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md)もやってみましょう！
