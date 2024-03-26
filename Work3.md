@@ -13,9 +13,9 @@
 - Sentinel インシデントトリガーから得られるエンティティ情報は JSON アレイ型になっています<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/00773eba-13f8-4ddd-948d-b66a856389e4)
 - 例えば、MDE for Linux が EICAR ファイルを検知した際のエンティティ情報は以下のようになります
- - ``kind`` が ``Host`` 属性となるホスト情報
- - ``kind`` が ``File`` 属性となるファイル名情報
- - ``kind`` が ``FileHash`` 属性となるファイルハッシュ情報
+  - ``kind`` が ``Host`` 属性となるホスト情報
+  - ``kind`` が ``File`` 属性となるファイル名情報
+  - ``kind`` が ``FileHash`` 属性となるファイルハッシュ情報
 - ここでは、後述の Advanced Hunting に使うデータとして、ホスト情報を抽出する想定としています
 
 ```json
@@ -99,6 +99,12 @@
     "friendlyName": "vmlinuxcustomlog",
     "Type": "host"
   }
+  {
+    "dnsDomain": "(以後省略・・・）",
+    },
+    "friendlyName": "vmlinuxcustomlog",
+    "Type": "host"
+  }
 ]
 ```
 
@@ -109,7 +115,7 @@
  - 「ビルトイン」-> 「制御」-> 「For Each」を選択して下さい。
 - For Each 処理は JSON アレイを入れることで、JSON フィールド毎に分解されます。先に設定した JSON アレイ変数を設定しましょう<p>
 <img width="559" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/30c9258f-38f9-498c-93a7-aac2979bced3"><p>
-- For Each 処理をすることで、前述のJSONアレイは分解され、JSON フィールド毎に処理されます
+- For Each 処理をすることで、前述のJSONアレイは分解され、JSON フィールド毎に処理されます（アレイが外れます）
 
 ```json
   {
