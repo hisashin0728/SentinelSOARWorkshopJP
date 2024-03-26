@@ -103,7 +103,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
     },
     "friendlyName": "vmlinuxcustomlog",
     "Type": "host"
-  }
+  },
   {
     "dnsDomain": "(以後省略)",
     },
