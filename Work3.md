@@ -119,7 +119,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 - JSON アレイの情報をループ処理させるために For Each ループを用います
  - 「ビルトイン」-> 「制御」-> 「For Each」を選択して下さい。
 - For Each 処理は JSON アレイを入れることで、JSON フィールド毎に分解されます。先に設定した JSON アレイ変数を設定しましょう
-  - 先に設定した情報から、**「ホスト」**を選択します<p>
+  - 先に設定した情報から、「**ホスト**」を選択します<p>
 <img width="559" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/30c9258f-38f9-498c-93a7-aac2979bced3"><p>
 - For Each 処理をすることで、前述のJSONアレイは分解され、JSON フィールド毎に処理されます（アレイが外れます）
 
@@ -143,4 +143,39 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
     "Type": "host"
   }
 ```
+
+## 3. For Each ループ内で Defender ATP コネクタを用いて Advanced Hunting クエリーを設定する
+> 演習2と同じ内容で Advanced Hunting Query を設定しましょう
+- 目的となる JSON 情報に分解出来たので、Defender ATP コネクタを接続して、Advanced Hunting Query を設定します
+  - ロジックアプリのフロー Defender XDR コネクタを追加
+  - 「**詳細な検索**」を選択
+  - テナント接続が出てきますので、Entra ID 認証を用いて接続
+- Hunting Query は演習2 と同様なものか、ホスト情報を条件に出来るクエリーを設定して下さい
+
+### クエリ例1 - 脆弱性を Fix するセキュリティ更新プログラムを抽出する
+
+```kql
+DeviceTvmSoftwareVulnerabilities
+| where DeviceName contains "(ホスト名)"
+| where VulnerabilitySeverityLevel == @"High"
+| where RecommendedSecurityUpdate != ""
+| distinct RecommendedSecurityUpdate, RecommendedSecurityUpdateId, SoftwareVendor, SoftwareName, SoftwareVersion
+
+### クエリ例2 - 対象サーバーのアセット情報からソフトウェアリストを抽出する
+
+```kql
+DeviceTvmSoftwareInventory
+| where DeviceName contains "(ホスト名)"
+| distinct SoftwareVendor,SoftwareName,SoftwareVersion
+
+- ハンティングクエリーを設定する際に、**For Each 処理によって JSON アレイから分解された**JSONフィールドの情報をマッピングします
+  - ロジックアプリは賢いので、For Each 処理前のプロセスである **エンティティ - ホストを取得「ホスト ホスト名」**を選択した場合でも、自動的に ``items('For_each')?['HostName']`` に変換してくれます！<p>
+
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/67ee66f9-d05d-4457-a879-4481700fbdf1)
+
+- For Each 処理後のエンティティ抽出は式から JSON 起票で設定することも可能です。
+  - JSON の設定イメージは以下図を参考にしてください
+  - https://jpazinteg.github.io/blog/LogicApps/how-to-treat-json-in-logicApps/
+
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c730b3dc-6d8d-4715-b802-b18590d3fbf1)
 
