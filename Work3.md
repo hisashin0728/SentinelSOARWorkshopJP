@@ -1,6 +1,11 @@
 # 演習3. Sentinel インシデントトリガーからエンティティ属性を抽出して、Defender XDR のアドバンスドハンティングクエリーを実行する
 > 演習2 に加えて、Sentinel のインシデントに含まれるエンティティ情報を利用して Advanced Hunting を実行してみましょう
 
+Microsft Sentinel のインシデント検知をトリガーとして、インシデントに含まれるエンティティ情報から Defender XDR へクエリー分析を自動化するロジックアプリを実践してみましょう。<BR>
+構成イメージは以下の通りです<p>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9a855ed7-8337-4523-8a86-b5cb4426e5dc)
+
+
 ## 事前準備 Sentinel のインシデントトリガーのロジックアプリを作成する　
 > インシデントトリガーのロジックアプリを作成する
 - Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
