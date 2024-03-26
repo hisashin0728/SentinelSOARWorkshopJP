@@ -118,7 +118,8 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 - 前プロセスで Host 条件のエンティティ情報だけ抽出が出来ましたが、エンティティには複数の Host 情報が含まれる可能性があるため JSON アレイ型になっています
 - JSON アレイの情報をループ処理させるために For Each ループを用います
  - 「ビルトイン」-> 「制御」-> 「For Each」を選択して下さい。
-- For Each 処理は JSON アレイを入れることで、JSON フィールド毎に分解されます。先に設定した JSON アレイ変数を設定しましょう<p>
+- For Each 処理は JSON アレイを入れることで、JSON フィールド毎に分解されます。先に設定した JSON アレイ変数を設定しましょう
+  - 先に設定した情報から、**「ホスト」**を選択します
 <img width="559" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/30c9258f-38f9-498c-93a7-aac2979bced3"><p>
 - For Each 処理をすることで、前述のJSONアレイは分解され、JSON フィールド毎に処理されます（アレイが外れます）
 
