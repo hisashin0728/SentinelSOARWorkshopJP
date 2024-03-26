@@ -26,12 +26,12 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 定期的に Defender XDR Advanced Hunting Query を実行して通知します。<BR>
 以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！<BR>
 
-- クエリーイメージ
+- クエリー例 1 - 脆弱性を Fix するセキュリティ更新プログラムを抽出する
  - MDTM 脆弱性情報から、高危険度の脆弱性があり、セキュリティ更新プログラムがある情報を抽出する
  - 「セキュリティ更新プログラム」があるのだから、パッチ適用しようよ！をアピール
  - CVE 情報ではなく、パッチ適用を推進するための情報を抽出するイメージ
 
-```
+```kql
 DeviceTvmSoftwareVulnerabilities
 | where DeviceName contains "(ホスト名)"
 | where VulnerabilitySeverityLevel == @"High"
@@ -39,6 +39,19 @@ DeviceTvmSoftwareVulnerabilities
 | distinct RecommendedSecurityUpdate, RecommendedSecurityUpdateId, SoftwareVendor, SoftwareName, SoftwareVersion
 ```
 <img width="746" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c9c4b020-8406-4eec-a09e-c875810ad700">
+
+- クエリー例 2 - 対象サーバーのアセット情報からソフトウェアリストを抽出する
+ - MDTM 脆弱性情報から、ソフトウェアインベントリ情報を抽出する
+ - サーバーやクライアントを検出した際に、この端末（サーバー）はどのようなものかを判定させる
+
+```kql
+DeviceTvmSoftwareInventory
+| where DeviceName contains "(ホスト名)"
+| distinct SoftwareVendor,SoftwareName,SoftwareVersion
+```
+<img width="415" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a2cc2da4-eb3b-4105-845d-1170b0bb7ade">
+
+
 
 ## 3. ロジックアプリにクエリーを設定する
 > ロジックアプリのフローから Defender XDR Advanced Hunting Query を設定しましょう
