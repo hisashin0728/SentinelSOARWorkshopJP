@@ -12,16 +12,16 @@
 # 演習コンテンツ
 > ワークショップのコンテンツはこちらです。
 > 
-1. [Sentinel インシデントからロジックアプリに何が渡せるのかを見てみよう](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work1.md)
-2. 標準コネクタを用いて試してみよう
-    - Sentinel インシデントをトリガーとして、Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
+1. [演習1. Sentinel インシデントトリガー時にどのような情報が連携されるのかを理解する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work1.md)
+2. [演習2. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md)
+    - 定期的に Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
     - ハンティングした結果を成型して通知してみよう
-3. RESTAPI を使ってみよう
+3. [演習3. Sentinel インシデントトリガーからエンティティ属性を抽出して、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md)
+    - Sentinel のインシデントをトリガーに、エンティティに含まれる Host 情報から Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
+    - ハンティングした結果を成型して通知してみよう
+5. RESTAPI を使ってみよう
     - Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
     - ハンティングした結果を成型して通知してみよう
-4. JSON アレイを処理してみよう
-    - JSON アレイって何？
-    - For Each 処理を使ってみよう
 
 # 免責事項
 > 本レポジトリの演習は課金が発生します。
