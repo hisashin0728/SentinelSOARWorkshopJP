@@ -7,7 +7,9 @@
 
 - Microsoft Sentinel の環境を自テナントに有すること
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
-  - 本演習では Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートによる効果を想定しています。
+  - 本演習では以下からサンプルアラートを発砲できる環境を想定しています
+    - Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲
+    - MDE が導入された Windows / Linux より、EICAR や Test Alert を発砲 
 
 # 演習コンテンツ
 > ワークショップのコンテンツはこちらです。
