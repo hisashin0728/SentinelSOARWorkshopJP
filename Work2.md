@@ -18,7 +18,7 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 <img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33"><BR>
 - 「**詳細な検索**」を選択します
 
-:::note info
+:::
  「詳細な検索」 = Advanced Hunting を実行する標準コネクタになります
 :::
 
