@@ -18,7 +18,7 @@
  - ``kind`` が ``FileHash`` 属性となるファイルハッシュ情報
 - ここでは、後述の Advanced Hunting に使うデータとして、ホスト情報を抽出する想定としています
 
-```
+```json
 [
   {
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-xxx-xxx/providers/Microsoft.OperationalInsights/workspaces/log-hubhnakada-JapanEast/providers/Microsoft.SecurityInsights/Entities/",
@@ -79,7 +79,7 @@
 - このコネクタを用いることで、エンティティの JSON アレイに含まれる情報のうち、``kind`` = ``Host`` 条件のものだけを抽出出来たことが分かります<p>
 <img width="491" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3e05691d-ad16-418a-a084-3ab13fa1908e"><BR>
 
-```
+```json
 [
   {
     "dnsDomain": "rglnoiucbtnuzarcriubjs2azc.lx.internal.cloudapp.net",
