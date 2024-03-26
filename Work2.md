@@ -90,14 +90,13 @@ DeviceTvmSoftwareInventory
 > 美的センスを高めてカスタマイズしましょう！
 
 - デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれていませんか？
-- 表の項目名、せっかくなので日本語化してみましょう
-
-- ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します
+ - 表の項目名、せっかくなので日本語化してみましょう
+- ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します<p>
 <img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8"><BR>
-- HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう。
+- HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5bdb53c5-c660-48d3-8c7a-815422cd197f)
 
-- ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！
+- ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！<p>
 <img width="851" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9d61177e-2236-4451-bfe8-f97f60651c76">
 
 
