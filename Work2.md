@@ -61,20 +61,18 @@ DeviceTvmSoftwareInventory
 > ロジックアプリのフローから Defender XDR Advanced Hunting Query を設定しましょう
 
 - ロジックアプリのコネクタにクエリーを設定してみましょう
- - インシデントトリガーでの実行を試す前に、まずは手動でクエリーを投入し、正しく動作するかどうかを確認することをお勧めします
+- Defender XDR に対して Advanced Hunting Query を実行し、正しく動作する（結果が得られる）クエリーを投入します<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bb98515f-12bc-4999-a92a-1e2a9f5c8041)
-
-- 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます
+- 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/051a56b4-56c7-4030-a6c3-2f48cb9ff371)
-
-- 成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます
+- 成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/88d298d7-d22c-4bd6-8ef0-d43fd2715f58)
 
 
 ## 4. クエリー結果を成型する
 > ロジックアプリの結果を成型して見やすくする
 
-- RESTAPI の処理によって得られた結果は JSON Format による応答で得られます
+- RESTAPI の処理によって得られた結果は JSON フォーマットで結果を得ることが出来ます
  - クエリー結果を事後のアクションとしてメール通知、Teams 通知する場合、このままでは既読性が悪く運用に向きません
  - 通知し易いように HTML 変換しちゃいましょう!
 
@@ -89,8 +87,9 @@ DeviceTvmSoftwareInventory
 
 ### 4.2 HTML テーブルをカスタマイズする
 > 美的センスを高めてカスタマイズしましょう！
-> デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれていませんか？
-> 表の項目名、せっかくなので日本語化しませんか？
+
+- デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれていませんか？
+- 表の項目名、せっかくなので日本語化してみましょう
 
 - ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します
 <img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8"><BR>
