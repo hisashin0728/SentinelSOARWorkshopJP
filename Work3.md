@@ -72,11 +72,11 @@
   }
 ]
 ```
-- エンティティ情報からホスト情報を抽出するため、Sentinel 標準コネクタ「エンティティ - ホストを取得」を用います。
+- エンティティ情報からホスト情報を抽出するため、Sentinel 標準コネクタ「エンティティ - ホストを取得」を用います。<p>
 <img width="286" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c8f55b78-c27a-4008-ba1b-8e0c29642c2e"><BR>
-- コネクタが追加されましたら、トリガーとなった Sentinel の「エンティティ」リストを適用します
+- コネクタが追加されましたら、トリガーとなった Sentinel の「エンティティ」リストを適用します<p>
 <img width="675" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4e7fb35f-f49b-4eb6-8338-8b9788659c18"><BR>
-- このコネクタを用いることで、エンティティの JSON アレイに含まれる情報のうち、``kind`` = ``Host`` 条件のものだけを抽出出来たことが分かります
+- このコネクタを用いることで、エンティティの JSON アレイに含まれる情報のうち、``kind`` = ``Host`` 条件のものだけを抽出出来たことが分かります<p>
 <img width="491" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3e05691d-ad16-418a-a084-3ab13fa1908e"><BR>
 
 ```
