@@ -123,8 +123,7 @@ Connect-MgGraph -Scopes $RequiredScopes
 <作成したスクリプト名>.ps1
 ```
 
-<img width="518" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/fc31b31f-80ab-4301-8ba0-a939f487ec61">
-
+<img width="1105" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/7eb9e737-8552-4883-b6cc-d3700f93bbce">
 
 ### 3.3 Microsoft Graph から切断
 ```powershell:MgGraph切断
