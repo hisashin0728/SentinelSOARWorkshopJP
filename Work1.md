@@ -70,3 +70,9 @@ logic-[目的]-[リージョン]<BR>
 - インシデントの詳細は？
 - 重要度は？
 - 他にどのような情報が含まれていますか？
+
+## まとめ
+> おつかれさまでした！
+
+- Sentinel のインシデントトリガーからどのような情報が引き継がれるのかを確認できました
+- [次の演習](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md)にチャレンジしてみましょう
