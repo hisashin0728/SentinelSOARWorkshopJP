@@ -36,3 +36,8 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 GET https://graph.microsoft.com/v1.0/users/87d349ed-44d7-43e1-9a83-5f2406dee5bd?$select=displayName,givenName,postalCode,identities
 ```
 <img width="797" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/66a9ce25-3710-4a4e-a93b-56ed981a6da6">
+
+- 出来ますね！
+  - Microsoft Graph を使いこなすことで、必要となる情報を取得できることが分かりました
+
+## 1. 
