@@ -17,7 +17,8 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/1738f4b2-40cc-4e08-8c88-d48dfab535ad)
 
 - 本演習では[ユーザーの取得](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http)クエリーを用います
-  - ユーザ名を入れただけの規定値クエリーでは限定的な情報のみ応答することが分かります [Docs 情報](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-1-standard-users-request)
+  - ``id`` もしくは ``UserPrincipalName`` でユーザー情報を取得できます
+  - UPN 名を入れただけの規定値クエリーでは限定的な情報のみ応答することが分かります [Docs 情報](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-1-standard-users-request)
     - ``businessPhones``
     - ``displayName``
     - ``givenName``
@@ -159,19 +160,59 @@ Disconnect-MgGraph
 
 <img width="808" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/02a2af7a-a867-4245-832a-5f8ee9a10a1a">
 
+- エンティティ情報の JSON アレイ分解後の JSON 情報は以下のようになります
+  - ADDS より連携されたユーザー情報例
+
+```json
+  {
+    "accountName": "中田 尚志",
+    "ntDomain": "ad.azurecsa",
+    "upnSuffix": "ad.azurecsa.net",
+    "sid": "S-1-5-21-3013741847-3473879986-3602106788-1108",
+    "aadTenantId": "63001692-0de3-4bc0-9815-4e9a04aea825",
+    "aadUserId": "e47aff12-1da8-45cb-95df-fc5c3db05bee",
+    "isDomainJoined": true,
+    "displayName": "中田 尚志",
+    "dnsDomain": "ad.azurecsa.net",
+    "additionalData": {
+      "Sources": "[\"AzureActiveDirectory\"]",
+      "GivenName": "尚志",
+      "IsDeleted": "False",
+      "IsEnabled": "True",
+      "Surname": "中田",
+      "TransitiveDirectoryRoles": "[\"Application Administrator\",\"Cloud Application Administrator\"]",
+      "UserType": "Member",
+      "UpnName": "hnakada@ad.azurecsa.net",
+      "SyncFromAad": "True",
+      "AliasNames": "[\"hisas\",\"hnakada\",\"中田 尚志\"]",
+      "UserPrincipalName": "hnakada@ad.azurecsa.net",
+      "MailAddress": "hnakada@ad.azurecsa.net",
+      "OnPremisesDistinguishedName": "CN=中田 尚志,CN=Users,DC=ad,DC=azurecsa,DC=net",
+      "OnPremisesSamAccountName": "hnakada",
+      "AccountName": "hnakada",
+      "DomainName": "ad.azurecsa"
+    },
+    "friendlyName": "中田 尚志",
+    "Type": "account",
+    "Name": "中田 尚志"
+  }
+```
 
 ## 3. Microsoft Graph に RESTAPI を送る
-> HTTP コネクタを用いて、Microsoft Graph に RESTAPI
+> HTTP コネクタを用いて、Microsoft Graph に RESTAPI を送ります
 
 - アカウント情報に対して、Microsoft Graph に HTTP コネクタを用いて RESTAPI を行います
   - 「ビルトイン」-> 「HTTP」より、HTTP コネクタを追加します
   - 「アクション」は「HTTP」を選択します
   -  HTTP コネクタのパラメータに Microsoft Graph 宛のパラメータを設定します
+-  前述で For Each で分解された情報から ``UserPrincipalName`` を JSON で設定します
+  - 上記の JSON 構造から JSON Path を考えてみましょう
+  - ``@{items('For_each')?['additionalData']?['UserPrincipalName']}`` になります
 
 |  項目  | パラメータ設定 |
 | ---- | ---- |
 | 方法 | ``GET`` |
-| URI |  Microsoft Graph に送るRESTAPI URI<BR> ``https://graph.microsoft.com/v1.0/users/@{items('For_each')?['Name']}?$select=displayName,userPrincipalName,mail,officeLocation,department,jobTitle``  |
+| URI |  Microsoft Graph に送るRESTAPI URI<BR> ``https://graph.microsoft.com/v1.0/users/@{items('For_each')?['additionalData']?['UserPrincipalName']}?$select=displayName,userPrincipalName,mail,officeLocation,department,jobTitle``  |
 | ヘッダー | Content-Type : ``application/json`` |
 | 認証 | マネージド ID |
 | マネージド ID | システムマネージド ID |
