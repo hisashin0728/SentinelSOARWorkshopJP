@@ -75,7 +75,7 @@ Powershell を用いて権限を付与しましょう。
 ```powershell
 PS /home/hisashi> code <スクリプト名>.ps1
 ```    
-- 自環境に合わせて以下スクリプトを作成して保存します
+- 自環境に合わせて以下 Powershell スクリプトを作成して保存します
 
 ```powershell
 # テナント ID と先ほどメモしたオブジェクト ID を設定
