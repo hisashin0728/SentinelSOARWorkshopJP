@@ -109,7 +109,7 @@ New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $spID -BodyParameter
 ### 3.1 Microsoft Graph への接続
 
 ```powershell:MicrosoftGraph接続
-$RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All") Connect-MgGraph -Scopes $RequiredScopes
+$RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All")
 Connect-MgGraph -Scopes $RequiredScopes
 ```
 
