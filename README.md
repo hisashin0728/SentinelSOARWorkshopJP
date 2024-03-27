@@ -21,7 +21,7 @@
 3. [演習3. Sentinel インシデントトリガーからエンティティ属性を抽出して、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md)
     - Sentinel のインシデントをトリガーに、エンティティに含まれる Host 情報から Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
     - ハンティングした結果を成型して通知してみよう
-5. RESTAPI を使ってみよう
+5. [演習4. Sentinel インシデントトリガーからエンティティ属性を抽出して、Microsoft Graph API を叩いて Entra ID 情報を取得する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work4.md)
     - Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
     - ハンティングした結果を成型して通知してみよう
 
