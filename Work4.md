@@ -218,11 +218,12 @@ Disconnect-MgGraph
 | マネージド ID | システムマネージド ID |
 | 対象ユーザー | ``https://graph.microsoft.com/`` |
 
-- JSON Path は「動的なコンテンツ」から設定することが出来ないため、「ロジックアプリコードビュー」から直接します
+- JSON Path は「動的なコンテンツ」から設定することが出来ないため、「ロジックアプリコードビュー」から直接編集します
 > 以下画面を参考に、コードビューから HTTP コネクタの URI を直接編集して下さい
 
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/0151a763-6fd5-4c56-b897-c41c57fee0de)
 
 - 設定イメージ
-<img width="737" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ed08c34e-93de-47a8-8699-34c7fddc4b56">
+> デザイナーから編集は出来ませんが、コードビューで直編集した　JSON パスが反映されます
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5056c104-accf-45de-ab9f-5861114ced2e)
 
