@@ -105,7 +105,7 @@ New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $spID -BodyParameter
 
 - 以下手順で作成したスクリプトを実行します
 
-### 1. Microsoft Graph への接続
+### 3.1 Microsoft Graph への接続
 
 ```powershell:MicrosoftGraph接続
 $RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All") Connect-MgGraph -Scopes $RequiredScopes
@@ -114,7 +114,7 @@ Connect-MgGraph -Scopes $RequiredScopes
 
 <img width="534" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e3ac3c5d-60da-4527-8b21-a08f6d053a76"><p>
 
-### 2. Powershell スクリプト実行
+### 3.2 Powershell スクリプト実行
 
 ```powershell:スクリプト実行
 <作成したスクリプト名>.ps1
@@ -123,13 +123,22 @@ Connect-MgGraph -Scopes $RequiredScopes
 <img width="518" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/fc31b31f-80ab-4301-8ba0-a939f487ec61">
 
 
-### 3. Microsoft Graph から切断
+### 3.3 Microsoft Graph から切断
 ```powershell:MgGraph切断
 Disconnect-MgGraph
 ```
 
 <img width="515" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/eed4b9cf-354a-4a15-97a1-a451078e8cb1">
 
+### 3.4 Entra ID からエンタープライズアプリで確認する
+- 無事スクリプトが成功すれば、Entra ID から確認が出来ます
+- 「Entra ID」 -> 「エンタープライズアプリケーション」より、対象のマネージド ID を確認しましょう
+- 「アクセス許可」から、Microsoft Graph に対して、``User.Read.All`` が付与されているかどうかを確認します
+
+<img width="316" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/006b183e-4545-4a4b-a707-6f3439c73841"><p>
+
+> 参考
+> マネージド ID が削除されると、自動的に Entra ID のアプリケーションからも削除されます
 
 # 1. Sentinel エンティティ情報を格納する
 > アカウントタイプのエンティティのみに抽出する
