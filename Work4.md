@@ -71,6 +71,7 @@ Powershell を用いて権限を付与しましょう。
 <img width="384" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/d2140532-ca09-4539-8554-13d3f04bed22"><p>
 
 - 実行用の Powershell スクリプトを作ります
+> VisualStudio Code のファイル保存は 「Ctrl + S」で保存できます
 
 ```powershell
 PS /home/hisashi> code <スクリプト名>.ps1
