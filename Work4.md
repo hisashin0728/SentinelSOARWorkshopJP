@@ -66,7 +66,7 @@ Powershell を用いて権限を付与しましょう。<p>
   - [.NET Framework 4.7.2 以上のインストール](https://learn.microsoft.com/en-us/dotnet/framework/install/)
   - PowerShellGet の最新版のアップデート ``Install-Module PowerShellGet``
   - ``Micosoft.Graph`` [モジュールのインストール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation?view=graph-powershell-1.0#installation)
-- Azure Cloudshell の手順 (※お勧め)
+- Azure Cloudshell の手順 (**お勧め**) 手順が確立しています
   - Azure ポータルから Cloudshell で設定するのがおススメです
   - Azure から Cloudshell を Powershell モードで起動します<p>
 <img width="975" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3ce7badf-46ea-4b0a-8035-19740576c560"><p>
