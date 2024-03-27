@@ -29,7 +29,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
     - ``preferredLanguage``
     - ``surname``
     - ``userPrincipalName``
-  - 部署名フィールド(department) を付与するにはどうしたら良いでしょうか？
+  - 部署名フィールド(``department``) を付与するにはどうしたら良いでしょうか？
     - [$selectを使用してユーザーの特定のプロパティを取得する](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-use-select-to-retrieve-specific-properties-of-a-user)
 
 ```
