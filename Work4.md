@@ -152,7 +152,7 @@ Disconnect-MgGraph
 
 <img width="876" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8de88f80-8679-4425-8a9e-3b3066a2c653">
 
-# 2. For Each 処理で JSON アレイの内容毎に処理する
+## 2. For Each 処理で JSON アレイの内容毎に処理する
 > For Each 処理でエンティティのアレイを分解しましょう
 
  - [演習3 のプロセス](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md#2-json-%E3%82%A2%E3%83%AC%E3%82%A4%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92-for-each-%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E5%88%86%E8%A7%A3%E3%81%97%E3%81%A6%E5%87%A6%E7%90%86%E3%81%95%E3%81%9B%E3%82%8B)同様に、エンティティで抽出した情報は JSON アレイになっているため（※複数のアカウントが検出する可能性がある）、For Each 処理を行います
