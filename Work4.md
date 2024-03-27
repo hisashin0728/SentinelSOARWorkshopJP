@@ -40,4 +40,44 @@ GET https://graph.microsoft.com/v1.0/users/87d349ed-44d7-43e1-9a83-5f2406dee5bd?
 - 出来ますね！
   - Microsoft Graph を使いこなすことで、必要となる情報を取得できることが分かりました
 
-## 1. 
+## 事前準備 Sentinel のインシデントトリガーのロジックアプリを作成する　
+> これまでの演習と同様に、インシデントトリガーのロジックアプリを作成しましょう
+- Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bf2a9e25-4554-4a2d-9168-3854cde38da8)
+<img width="423" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8604d868-6952-4340-9fe4-f3d0a77427d2">
+
+## 1. Sentinel インシデントトリガーから得られるエンティティ情報を格納する
+> アカウントタイプのエンティティのみに抽出する
+
+- 後段の Microsoft.Graph に連携するため、ここでは ``Account`` 型のエンティティを抽出します
+- 標準コネクタ「Microsoft Sentinel」->「エンティティ - アカウントを取得」を接続し、Sentinel インシデントトリガーの情報から「エンティティ」の一覧をセットします
+
+<img width="876" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8de88f80-8679-4425-8a9e-3b3066a2c653">
+
+## 2. For Each 処理で JSON アレイの内容毎に処理する
+> For Each 処理でエンティティのアレイを分解しましょう
+
+ - [演習3 のプロセス](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md#2-json-%E3%82%A2%E3%83%AC%E3%82%A4%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92-for-each-%E3%83%AB%E3%83%BC%E3%83%97%E3%81%A7%E5%88%86%E8%A7%A3%E3%81%97%E3%81%A6%E5%87%A6%E7%90%86%E3%81%95%E3%81%9B%E3%82%8B)同様に、エンティティで抽出した情報は JSON アレイになっているため（※複数のアカウントが検出する可能性がある）、For Each 処理を行います
+
+<img width="808" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/02a2af7a-a867-4245-832a-5f8ee9a10a1a">
+
+## 3. Microsoft Graph に RESTAPI を送る
+> HTTP コネクタを用いて、Microsoft Graph に RESTAPI
+
+- アカウント情報に対して、Microsoft Graph に HTTP コネクタを用いて RESTAPI を行います
+  - 「ビルトイン」-> 「HTTP」より、HTTP コネクタを追加します
+  - 「アクション」は「HTTP」を選択します
+  -  HTTP コネクタのパラメータに Microsoft Graph 宛のパラメータを設定します
+
+|  項目  | パラメータ設定 |
+| ---- | ---- |
+| 方法 | ``GET`` |
+| URI |  Microsoft Graph に送るRESTAPI URI<BR> ``https://graph.microsoft.com/v1.0/users/@{items('For_each')?['Name']}?$select=displayName,userPrincipalName,mail,officeLocation,department,jobTitle``  |
+| ヘッダー | Content-Type : ``application/json`` |
+| 認証 | マネージド ID |
+| マネージド ID | システムマネージド ID |
+| 対象ユーザー | ``https://graph.microsoft.com/`` |
+
+- 設定イメージ
+<img width="737" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ed08c34e-93de-47a8-8699-34c7fddc4b56">
+
