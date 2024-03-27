@@ -6,7 +6,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/03cf1312-856e-4fb6-a34d-0ff898600940)
 
-# 理解 Microsoft Graph を触ってみる
+# [理解] Microsoft Graph を触ってみる
 > はじめに Microsoft Graph Explorer を触ってみましょう
 
 - Microsoft Graph については、[公式 Docs](https://learn.microsoft.com/ja-jp/graph/overview) を参照下さい
