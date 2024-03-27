@@ -39,10 +39,15 @@ logic-[目的]-[リージョン]<BR>
 
 <img width="595" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/0e794fcb-08a7-47ba-986b-bc2568753d5c">
 <br>
+
 - その場合は、下に表示されている「プレイブックのアクセス許可を管理」するリンクから、作成したリソースグループを Sentinel でアクセス出来るように権限を付与してください。
+
 > 反映に少し時間がかかる点に注意して下さい。
+
 <img width="961" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e1129fb3-20de-4764-92a1-75f587110ade">
+
 - 既に多数のプレイブックを作成している場合は、ルール順番に注意して下さい。
+
 <img width="598" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/4dd91b5a-8f8a-4b37-98cb-6f4d352a32ff">
 
 ## 3. Microsoft Defender for Cloud (MDC) からサンプルアラートを発砲してみる
