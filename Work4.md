@@ -235,3 +235,67 @@ Disconnect-MgGraph
 - マネージド ID 経由で Graph API を叩いて、レスポンスが返ってきますか？
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8ba20a6a-485a-4ee2-a1b9-62d9da6e3e4a)
 
+## 4. 後処理で使いやすいように JSON 正規化 (Parse JSON) を行う
+> あと少し！頑張って！
+- Graph API にクエリーした応答結果を、後工程で処理しやすいように JSON 正規化します
+  - JSON 正規化すると、「動的なコンテンツ」から選択するだけで反映出来るようになります
+- アクションの追加より、「ビルトイン」-> 「データ操作」 -> 「JSON の解析」を選択します
+  -　コンテンツには、前ステップで得られた「本文(BODY)」を選択します
+- スキーマの欄には、前ステップで得られたペイロード情報をサンプルとして貼り付けてスキーマ生成することが出来ますが、今回は以下を張り付けて下さい
+
+```json
+{
+    "properties": {
+        "@@odata.context": {
+            "type": "string"
+        },
+        "department": {
+            "type": "string"
+        },
+        "displayName": {
+            "type": "string"
+        },
+        "jobTitle": {
+            "type": "string"
+        },
+        "mail": {
+            "type": "string"
+        },
+        "mobilePhone": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "officeLocation": {
+            "type": "string"
+        },
+        "userPrincipalName": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+```
+> JSON の正規化モジュールでは、"type" : "string" などの固定値で設定したフィールドだけ、後段のプロセスで動的なコンテンツで読み出すことが出来ます。
+> 上記例での "mobilePhone" のように応答値が NULL になる可能性がある場合、type 指定を複数設定しないとエラーになりますが、後段のプロセスでは読み出すことが出来なくなります。
+
+- この処理が行われると、以下のように処理されます
+
+<img width="876" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/805e5679-2d08-4967-8287-84820fcb9dbc">
+
+## 5. 通知を行う
+> あとは煮るなり焼くなり、何でもどうぞ！
+- Microsoft Graph に lookup しましたので、得られた情報を通知しましょう
+  - メール通知
+<img width="700" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a847f1b2-08fb-4b84-93d8-9333e07f4837">
+  - Teams 通知
+  - Microsoft Sentinel のインシデント情報にコメントで付与する 
+<img width="608" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c5bc72c5-bb1a-47b8-888a-df39578cfa79">
+
+# 振り返り
+> お疲れさまでした！
+- 本演習では以下を実践しました
+  - Graph API を理解する
+  - Graph API への接続方法を理解する (マネージド ID 経由)
+  - ロジックアプリで Graph API の叩き方、お作法を理解する
