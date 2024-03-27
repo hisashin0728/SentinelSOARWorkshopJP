@@ -9,7 +9,8 @@
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
   - 本演習では以下からサンプルアラートを発砲できる環境を想定しています
     - Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲
-    - MDE が導入された Windows / Linux より、EICAR や Test Alert を発砲
+    - MDE (Microsoft Defender for Endpoint) が導入された Windows / Linux より、EICAR や Test Alert を発砲
+    - Microsoft Entra ID Protection による Test Alert を発砲
 - (もしくは) 既に Microsoft Sentinel のテスト環境を構築済みで、以下のようなインシデント情報を残していること
     - MDE で検知したアラート（アラート内容は何でもOK）で、ホスト情報が付与されたインシデントが作られていること
     - Microsoft Entra ID Protection (旧 AAD IDP) をテスト実装されており、ユーザー名のエンティティ情報が付与されたインシデントが作られていること
