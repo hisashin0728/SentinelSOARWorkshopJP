@@ -69,12 +69,13 @@ Powershell を用いて権限を付与しましょう。
   - Azure から Cloudshell を Powershell モードで起動します<p>
 <img width="975" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3ce7badf-46ea-4b0a-8035-19740576c560"><p>
 <img width="384" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/d2140532-ca09-4539-8554-13d3f04bed22"><p>
-  - 実行用の Powershell スクリプトを作ります
+
+- 実行用の Powershell スクリプトを作ります
 
 ```powershell
-PS /home/hisashi> code managedid.ps1
+PS /home/hisashi> code <スクリプト名>.ps1
 ```    
-  - 自環境に合わせて以下スクリプトを作成して保存します
+- 自環境に合わせて以下スクリプトを作成して保存します
 
 ```powershell
 # テナント ID と先ほどメモしたオブジェクト ID を設定
@@ -102,21 +103,33 @@ $params = @{
 New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $spID -BodyParameter $params
 ```
 
-  - 以下手順で作成したスクリプトを実行します
+- 以下手順で作成したスクリプトを実行します
 
-Microsoft Graph への接続
+### 1. Microsoft Graph への接続
+
 ```powershell:MicrosoftGraph接続
 $RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All") Connect-MgGraph -Scopes $RequiredScopes
 Connect-MgGraph -Scopes $RequiredScopes
 ```
-Powershell スクリプト実行
+
+<img width="534" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e3ac3c5d-60da-4527-8b21-a08f6d053a76"><p>
+
+### 2. Powershell スクリプト実行
+
 ```powershell:スクリプト実行
 <作成したスクリプト名>.ps1
 ```
-切断
+
+<img width="518" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/fc31b31f-80ab-4301-8ba0-a939f487ec61">
+
+
+### 3. Microsoft Graph から切断
 ```powershell:MgGraph切断
 Disconnect-MgGraph
 ```
+
+<img width="515" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/eed4b9cf-354a-4a15-97a1-a451078e8cb1">
+
 
 # 1. Sentinel エンティティ情報を格納する
 > アカウントタイプのエンティティのみに抽出する
