@@ -17,7 +17,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/1738f4b2-40cc-4e08-8c88-d48dfab535ad)
 
 - 本演習では[ユーザーの取得](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http)クエリーを用います
-  - [Docs 情報](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-1-standard-users-request)から、ユーザ名を入れただけの規定値クエリーでは限定的な情報のみ応答することが分かります
+  - ユーザ名を入れただけの規定値クエリーでは限定的な情報のみ応答することが分かります [Docs 情報](https://learn.microsoft.com/ja-jp/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-1-standard-users-request)
     - ``businessPhones``
     - ``displayName``
     - ``givenName``
