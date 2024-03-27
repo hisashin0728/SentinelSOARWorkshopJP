@@ -293,6 +293,9 @@ Disconnect-MgGraph
   - Microsoft Sentinel のインシデント情報にコメントで付与する <p>
     - Sentinel のインシデント情報を更新する場合は、ID より「Azure ロールの割り当て」にて「Sentinelレスポンダー」ロールを付与して下さい
 <img width="552" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/121d5aa7-59ff-4994-a39c-8ac8699d6a57">
+<img width="939" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/2bb041cf-feea-41e9-b6a1-a857958cff89">
+
+    - ロジックアプリ側では、「インシデントにコメントを追加」から更新をかけることが出来ます
 <img width="608" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c5bc72c5-bb1a-47b8-888a-df39578cfa79"><br>
 
 # 振り返り
