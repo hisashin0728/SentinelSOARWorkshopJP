@@ -41,19 +41,19 @@ GET https://graph.microsoft.com/v1.0/users/87d349ed-44d7-43e1-9a83-5f2406dee5bd?
   - Microsoft Graph を使いこなすことで、必要となる情報を取得できることが分かりました
 
 # 事前準備
-## Sentinel のインシデントトリガーのロジックアプリを作成する　
+## 1. Sentinel のインシデントトリガーのロジックアプリを作成する　
 > これまでの演習と同様に、インシデントトリガーのロジックアプリを作成しましょう
 - Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bf2a9e25-4554-4a2d-9168-3854cde38da8)
 <img width="423" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8604d868-6952-4340-9fe4-f3d0a77427d2">
 
-## 作成されたロジックアプリに対して、マネージド ID を有効にする
+## 2. 作成されたロジックアプリに対して、マネージド ID を有効にする
 > ロジックアプリが Microsoft Graph API に認証できるようにマネージド ID を有効にします
 - ロジックアプリの ID より、システム割り当て済みマネージド ID を有効にして保存します<p>
 
 <img width="744" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/223a5910-c627-46b3-ae8a-9c8c8713258f">
 
-## マネージド ID に対して、Entra ID で「User.Read.All」権限を付与する
+## 3. マネージド ID に対して、Entra ID で「User.Read.All」権限を付与する
 Microsoft Graph に接続するためには、Entra ID でマネージド ID に対して API のアクセス許可を与える必要があります。<p>
 2024.3 現在、マネージド ID に対する権限の付与は、残念ながら Azure ポータル側からの設定に対応しておりません。<p>
 Powershell を用いて権限を付与しましょう。
@@ -65,7 +65,58 @@ Powershell を用いて権限を付与しましょう。
   - PowerShellGet の最新版のアップデート ``Install-Module PowerShellGet``
   - ``Micosoft.Graph`` [モジュールのインストール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation?view=graph-powershell-1.0#installation)
 - Azure Cloudshell の手順 (※お勧め)
+  - Azure ポータルから Cloudshell で設定するのがおススメです
+  - Azure から Cloudshell を Powershell モードで起動します<p>
+<img width="975" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/3ce7badf-46ea-4b0a-8035-19740576c560"><p>
+<img width="384" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/d2140532-ca09-4539-8554-13d3f04bed22"><p>
+  - 実行用の Powershell スクリプトを作ります
 
+```powershell
+PS /home/hisashi> code managedid.ps1
+```    
+  - 自環境に合わせて以下スクリプトを作成して保存します
+
+```powershell
+# テナント ID と先ほどメモしたオブジェクト ID を設定
+$TenantID="<自環境の Entra ID　Tenant ID>"
+$spID="<ロジックアプリの Managed ID>"
+
+# MS Graph の許可を指定、1 つのみ指定
+# 複数必要の場合は「マネージド ID にアクセス許可を設定」のコマンドを繰り返し実施
+# 今回与える権限は Entra ID のユーザー情報 lookup なので、User.Read.All を設定
+$PermissionName = "User.Read.All"
+
+# 事前に MS Graph PowerShell にログイン
+Connect-MgGraph -TenantId $TenantID -Scopes Application.Read.All,AppRoleAssignment.ReadWrite.All
+
+# Microsoft Graph のサービスプリンシパルを取得
+$GraphServicePrincipal = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Graph'" | Select-Object -first 1
+
+# マネージド ID にアクセス許可を設定
+$AppRole = $GraphServicePrincipal.AppRoles | Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
+$params = @{
+    PrincipalId = $spID
+    ResourceId = $GraphServicePrincipal.Id
+    AppRoleId = $AppRole.Id
+}
+New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $spID -BodyParameter $params
+```
+
+  - 以下手順で作成したスクリプトを実行します
+
+Microsoft Graph への接続
+```powershell:MicrosoftGraph接続
+$RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All") Connect-MgGraph -Scopes $RequiredScopes
+Connect-MgGraph -Scopes $RequiredScopes
+```
+Powershell スクリプト実行
+```powershell:スクリプト実行
+<作成したスクリプト名>.ps1
+```
+切断
+```powershell:MgGraph切断
+Disconnect-MgGraph
+```
 
 # 1. Sentinel エンティティ情報を格納する
 > アカウントタイプのエンティティのみに抽出する
