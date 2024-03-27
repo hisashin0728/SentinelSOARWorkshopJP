@@ -8,7 +8,7 @@
 - Microsoft Sentinel の環境を自テナントに有すること
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
   - 本演習では以下からサンプルアラートを発砲できる環境を想定しています
-    - Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲
+    - [Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲](https://learn.microsoft.com/ja-jp/azure/defender-for-cloud/alert-validation)
     - MDE (Microsoft Defender for Endpoint) が導入された Windows / Linux より、EICAR や Test Alert を発砲
       - [Windows OS 向け MDE テスト方法](https://learn.microsoft.com/ja-jp/microsoft-365/security/defender-endpoint/run-detection-test?view=o365-worldwide#verify-microsoft-defender-for-endpoint-onboarding-of-a-device-using-a-powershell-detection-test)
       - [Linux OS 向け MDE テスト方法](https://learn.microsoft.com/ja-jp/microsoft-365/security/defender-endpoint/linux-exclusions?view=o365-worldwide#validate-exclusions-lists-with-the-eicar-test-file)
