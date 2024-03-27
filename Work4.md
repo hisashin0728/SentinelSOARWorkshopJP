@@ -287,11 +287,11 @@ Disconnect-MgGraph
 ## 5. 通知を行う
 > あとは煮るなり焼くなり、何でもどうぞ！
 - Microsoft Graph に lookup しましたので、得られた情報を通知しましょう
-  - メール通知
-<img width="700" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a847f1b2-08fb-4b84-93d8-9333e07f4837">
-  - Teams 通知
-  - Microsoft Sentinel のインシデント情報にコメントで付与する 
-<img width="608" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c5bc72c5-bb1a-47b8-888a-df39578cfa79">
+  - メール通知<p>
+<img width="700" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a847f1b2-08fb-4b84-93d8-9333e07f4837"><br>
+  - Teams 通知<p>
+  - Microsoft Sentinel のインシデント情報にコメントで付与する <p>
+<img width="608" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c5bc72c5-bb1a-47b8-888a-df39578cfa79"><br>
 
 # 振り返り
 > お疲れさまでした！
