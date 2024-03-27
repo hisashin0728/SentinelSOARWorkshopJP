@@ -6,7 +6,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/03cf1312-856e-4fb6-a34d-0ff898600940)
 
-# [理解] Microsoft Graph を触ってみる
+# Microsoft Graph を触ってみる
 > はじめに Microsoft Graph Explorer を触ってみましょう
 
 - Microsoft Graph については、[公式 Docs](https://learn.microsoft.com/ja-jp/graph/overview) を参照下さい
@@ -143,7 +143,8 @@ Disconnect-MgGraph
 > 参考
 > マネージド ID が削除されると、自動的に Entra ID のアプリケーションからも削除されます
 
-# 1. Sentinel エンティティ情報を格納する
+# ロジックアプリの編集
+## 1. Sentinel エンティティ情報を格納する
 > アカウントタイプのエンティティのみに抽出する
 
 - 後段の Microsoft.Graph に連携するため、ここでは ``Account`` 型のエンティティを抽出します
@@ -158,7 +159,8 @@ Disconnect-MgGraph
 
 <img width="808" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/02a2af7a-a867-4245-832a-5f8ee9a10a1a">
 
-# 3. Microsoft Graph に RESTAPI を送る
+
+## 3. Microsoft Graph に RESTAPI を送る
 > HTTP コネクタを用いて、Microsoft Graph に RESTAPI
 
 - アカウント情報に対して、Microsoft Graph に HTTP コネクタを用いて RESTAPI を行います
