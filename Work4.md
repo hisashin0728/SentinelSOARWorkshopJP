@@ -113,7 +113,9 @@ $RequiredScopes = @("Directory.AccessAsUser.All", "Directory.ReadWrite.All")
 Connect-MgGraph -Scopes $RequiredScopes
 ```
 
-<img width="534" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e3ac3c5d-60da-4527-8b21-a08f6d053a76"><p>
+<img width="969" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/cfea7136-07ad-4de7-bbd9-8b38d9a79956"><p>
+
+> Web でコード認証 / ユーザー認証が行われます
 
 ### 3.2 Powershell スクリプト実行
 
