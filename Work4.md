@@ -138,6 +138,7 @@ Disconnect-MgGraph
 - 「アクセス許可」から、Microsoft Graph に対して、``User.Read.All`` が付与されているかどうかを確認します
 
 <img width="316" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/006b183e-4545-4a4b-a707-6f3439c73841"><p>
+<img width="1102" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/27cf501f-ad00-41cf-9b93-182fd67d43b4">
 
 > 参考
 > マネージド ID が削除されると、自動的に Entra ID のアプリケーションからも削除されます
