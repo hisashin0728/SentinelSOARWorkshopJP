@@ -47,6 +47,26 @@ GET https://graph.microsoft.com/v1.0/users/87d349ed-44d7-43e1-9a83-5f2406dee5bd?
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bf2a9e25-4554-4a2d-9168-3854cde38da8)
 <img width="423" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8604d868-6952-4340-9fe4-f3d0a77427d2">
 
+## 作成されたロジックアプリに対して、マネージド ID を有効にする
+> ロジックアプリが Microsoft Graph API に認証できるようにマネージド ID を有効にします
+- ロジックアプリの ID より、システム割り当て済みマネージド ID を有効にして保存します<p>
+
+<img width="744" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/223a5910-c627-46b3-ae8a-9c8c8713258f">
+
+## マネージド ID に対して、Entra ID で「User.Read.All」権限を付与する
+Microsoft Graph に接続するためには、Entra ID でマネージド ID に対して API のアクセス許可を与える必要があります。<p>
+2024.3 現在、マネージド ID に対する権限の付与は、残念ながら Azure ポータル側からの設定に対応しておりません。<p>
+Powershell を用いて権限を付与しましょう。
+
+- 自PC環境で設定する方はこちら
+  - 手順は[公式 Docs](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation?view=graph-powershell-1.0) に掲載されています
+  - [PowerShell 5.1 以上のインストール](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell)
+  - [.NET Framework 4.7.2 以上のインストール](https://learn.microsoft.com/en-us/dotnet/framework/install/)
+  - PowerShellGet の最新版のアップデート ``Install-Module PowerShellGet``
+  - ``Micosoft.Graph`` [モジュールのインストール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation?view=graph-powershell-1.0#installation)
+- Azure Cloudshell の手順 (※お勧め)
+
+
 # 1. Sentinel インシデントトリガーから得られるエンティティ情報を格納する
 > アカウントタイプのエンティティのみに抽出する
 
