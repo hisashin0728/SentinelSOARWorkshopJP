@@ -28,12 +28,15 @@ logic-[目的]-[リージョン]<BR>
 - Sentinel 画面に戻り、「オートメーション」から「オートメーションルール」を作成します。
 <img width="416" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/6683df6b-4487-4535-91d9-f76921b8bf89">
 <BR>
-- 「新しいオートメーション ルールの作成」より、``Microsoft Defender for Cloud`` のデータソースからのインシデント作成時に検知するように設定します。
+- 「新しいオートメーション ルールの作成」より、``Microsoft Defender for Cloud`` のデータソースからのインシデント作成時に検知するように設定します
+
 > 条件として、どのような場合にロジックアプリに紐づけが出来るのかをチェックして下さい
 > インシデントプロパイダー、製品名、タグ、タイトルなど、どのような種類がありますか？
+
 <img width="417" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/de35d6af-bd85-41b8-8b87-fcff677b2035">
 
 - 作成したロジックアプリを選ぼうとすると、グレーになっていて選択が出来ませんか？<BR>
+
 <img width="595" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/0e794fcb-08a7-47ba-986b-bc2568753d5c">
 <br>
 - その場合は、下に表示されている「プレイブックのアクセス許可を管理」するリンクから、作成したリソースグループを Sentinel でアクセス出来るように権限を付与してください。
