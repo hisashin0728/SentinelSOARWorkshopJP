@@ -56,6 +56,7 @@ GET https://graph.microsoft.com/v1.0/users/87d349ed-44d7-43e1-9a83-5f2406dee5bd?
 
 ## 3. マネージド ID に対して、Entra ID で「User.Read.All」権限を付与する
 >Microsoft Graph に接続するためには、Entra ID でマネージド ID に対して API のアクセス許可を与える必要があります
+
 2024.3 現在、マネージド ID に対する権限の付与は、残念ながら Azure ポータル側からの設定に対応しておりません。<BR>
 Powershell を用いて権限を付与しましょう。<p>
 
