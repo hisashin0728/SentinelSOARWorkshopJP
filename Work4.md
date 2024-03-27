@@ -225,7 +225,7 @@ Disconnect-MgGraph
 
 - 設定イメージ
 > デザイナーから編集は出来ませんが、コードビューで直編集した　JSON パスが反映されます
-<img width="432" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/aa841a12-e6f0-4b5f-9cb1-db2df2419453">
+<img width="800" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/aa841a12-e6f0-4b5f-9cb1-db2df2419453">
 
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5056c104-accf-45de-ab9f-5861114ced2e)
 
