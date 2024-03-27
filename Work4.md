@@ -227,3 +227,9 @@ Disconnect-MgGraph
 > デザイナーから編集は出来ませんが、コードビューで直編集した　JSON パスが反映されます
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5056c104-accf-45de-ab9f-5861114ced2e)
 
+- テストしてみましょう
+> アカウント情報が出力されているインシデントがあれば、一度試してみましょう
+- ``UserPrincipalName`` は正しく拾えていますか？
+- マネージド ID 経由で Graph API を叩いて、レスポンスが返ってきますか？
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8ba20a6a-485a-4ee2-a1b9-62d9da6e3e4a)
+
