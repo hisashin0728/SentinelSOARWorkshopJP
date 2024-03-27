@@ -291,6 +291,8 @@ Disconnect-MgGraph
 <img width="700" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a847f1b2-08fb-4b84-93d8-9333e07f4837"><br>
   - Teams 通知<p>
   - Microsoft Sentinel のインシデント情報にコメントで付与する <p>
+    - Sentinel のインシデント情報を更新する場合は、ID より「Azure ロールの割り当て」にて「Sentinelレスポンダー」ロールを付与して下さい
+<img width="552" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/121d5aa7-59ff-4994-a39c-8ac8699d6a57">
 <img width="608" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c5bc72c5-bb1a-47b8-888a-df39578cfa79"><br>
 
 # 振り返り
