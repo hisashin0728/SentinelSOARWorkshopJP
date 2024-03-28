@@ -6,13 +6,14 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9a855ed7-8337-4523-8a86-b5cb4426e5dc)
 
 
-# ロジックアプリの作成
+# 事前準備
 ## Sentinel のインシデントトリガーのロジックアプリを作成する　
 > インシデントトリガーのロジックアプリを作成する
 - Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bf2a9e25-4554-4a2d-9168-3854cde38da8)
 <img width="423" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/8604d868-6952-4340-9fe4-f3d0a77427d2">
 
+# ロジックアプリの編集
 ## 1. Sentinel インシデントトリガーから得られるエンティティ情報を格納する
 > JSON アレイを理解する
 
@@ -194,7 +195,7 @@ DeviceTvmSoftwareInventory
   - [O365 コネクタを用いてメール通知](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md#51-%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
   - [Microsoft Teams コネクタを用いてチャネルに投稿](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md#52-microsoft-teams-%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
 
-## 5. 振り返り
+# 振り返り
 > お疲れ様でした！
 
 - この演習では以下を実践していただきました
