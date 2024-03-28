@@ -6,7 +6,7 @@ Microsft Sentinel のインシデント検知をトリガーとして、イン�
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9a855ed7-8337-4523-8a86-b5cb4426e5dc)
 
 
-# 事前準備
+# ロジックアプリの作成
 ## Sentinel のインシデントトリガーのロジックアプリを作成する　
 > インシデントトリガーのロジックアプリを作成する
 - Sentinel のオートメーションルールから、「インシデントトリガーを使用したプレイブック」を作成します<p>
