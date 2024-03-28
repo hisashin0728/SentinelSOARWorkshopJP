@@ -5,7 +5,8 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 構成イメージは以下の通りです。<p>
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/69597f88-94e4-4682-95c4-4f00d119e819)
 
-## 事前準備 空のロジックアプリを作成する　
+# 事前準備
+## 空のロジックアプリを作成する　
 - 空のロジックアプリから作成します。Sentinel のオートメーション、もしくはロジックアプリから作成して下さい。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99089e58-8f74-4e19-a080-a2626e386c21)
 - ロジックアプリが作成されましたら、「繰り返し」を選択します（crond）
@@ -13,6 +14,7 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 - 「繰り返し」の設定のパラメータを変更して、1 時間おきに実行するようにします
 <img width="1074" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/6ad559fc-0c9d-4994-85df-80cf786d629a">
 
+# ロジックアプリの編集
 ## 1. ロジックアプリに「Defender ATP」コネクタを追加する
 - ロジックアプリのフロー Defender XDR コネクタを追加します。<BR>
 <img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33"><BR>
@@ -134,7 +136,7 @@ DeviceTvmSoftwareInventory
 <img width="832" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a8be1e34-7d29-4e25-9536-6a171451c4da"><p>
 - テストして Teams チャネル宛に通知が行われることを確認して下さい
 
-## 6. 振り返り
+# 振り返り
 > お疲れさまでした！
 - この演習では以下を実践しました。
   - 標準コネクタを用いて、Defender XDR にクエリーを実施する
