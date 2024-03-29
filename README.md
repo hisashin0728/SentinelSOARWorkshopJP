@@ -5,6 +5,8 @@
 # 前提条件
 > 前提条件を以下に示します。演習によるリソース作成、利用分は有償になります。
 
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/69bbd9df-73e2-4b8c-b9e2-44b3e7918578)
+
 - Microsoft Sentinel の環境を自テナントに有すること
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
   - [Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲](https://learn.microsoft.com/ja-jp/azure/defender-for-cloud/alert-validation)
@@ -15,6 +17,10 @@
 - (**もしくは**) 既に Microsoft Sentinel のテスト環境を構築済みで、以下のようなインシデント情報を残していること
     - MDE で検知したアラート（アラート内容は何でもOK）で、ホスト情報が付与されたインシデントが作られていること
     - Microsoft Entra ID Protection (旧 AAD IDP) をテスト実装されており、ユーザー名のエンティティ情報が付与されたインシデントが作られていること
+- [参考] サンプルアラート生成方法 (本演習は Sentinel インシデントから ``Host`` や ``Account`` 種別のエンティティを元にロジックアプリを起動させます)
+    - [MDE for Windows サンプルアラート生成](https://learn.microsoft.com/ja-jp/microsoft-365/security/defender-endpoint/run-detection-test?view=o365-worldwide)
+    - [MDE for Linux サンプルアラート生成](https://learn.microsoft.com/ja-jp/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#client-configuration)
+    - [Entra ID Protection サンプルアラート生成](https://learn.microsoft.com/ja-jp/entra/id-protection/howto-identity-protection-simulate-risk)
 
 # 演習コンテンツ
 > ワークショップのコンテンツはこちらです。
