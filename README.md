@@ -18,7 +18,7 @@
 
 # 演習コンテンツ
 > ワークショップのコンテンツはこちらです。
-> 
+
 1. [演習1. Sentinel インシデントトリガー時にどのような情報が連携されるのかを理解する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work1.md)
 2. [演習2. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md)
     - 定期的に Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
@@ -29,6 +29,11 @@
 5. [演習4. Sentinel インシデントトリガーからエンティティ属性を抽出して、Microsoft Graph API を叩いて Entra ID 情報を取得する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work4.md)
     - Sentinel インシデントをトリガーとして、Microsoft Graph API を叩いてみよう
     - ハンティングした結果を成型して通知してみよう
+
+# アンケートのお願い
+> 最後にアンケートにご協力ください
+
+- 本ワークショップをより良いものにするため、[アンケート](https://forms.office.com/r/3Ed17BkkG1)にご記入下さい！
 
 # 免責事項
 > 本レポジトリの演習は課金が発生します。
