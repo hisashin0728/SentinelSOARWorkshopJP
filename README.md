@@ -25,9 +25,13 @@
 > ワークショップのコンテンツはこちらです。
 
 1. [演習1. Sentinel インシデントトリガー時にどのような情報が連携されるのかを理解する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work1.md)
-2. [演習2. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2.md)
-    - 定期的に Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
-    - ハンティングした結果を成型して通知してみよう
+2. どちらかを選択
+    - [演習2M. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md)
+      - 定期的に Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
+      - ハンティングした結果を成型して通知してみよう
+    - [演習2A. 標準コネクタを用いて、Azure Resource Graph (ARG) に対して定期的に監視クエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2A.md)
+      - 定期的に Log Analytics ワークスペースから Azure Resourec Graph (ARG)にクエリーをかけてみよう
+      - ハンティングした結果を成型して通知してみよう
 3. [演習3. Sentinel インシデントトリガーからエンティティ属性を抽出して、Defender XDR のアドバンスドハンティングクエリーを実行する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work3.md)
     - Sentinel のインシデントをトリガーに、エンティティに含まれる Host 情報から Defender XDR (Microsoft 365 Defender) にアドバンスハンティングクエリーをかけてみよう
     - ハンティングした結果を成型して通知してみよう
