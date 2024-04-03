@@ -1,11 +1,16 @@
-# 演習2. 標準コネクタを用いて、Defender XDR のアドバンスドハンティングクエリーを実行する
+# 演習2A. 標準コネクタを用いて、Azure Resource Graph (ARG) に対して定期的に監視クエリーを実行する
 > 標準コネクタを用いて、ロジックアプリを作成してみましょう
 
-Defender XDR のハンティングクエリーを実行するロジックアプリを実践してみましょう
+Azure Resource Graph の情報を監視するため、Azure Monitor 標準コネクタを用いてクエリーを実行するロジックアプリを実践してみましょう
 構成イメージは以下の通りです。<p>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/69597f88-94e4-4682-95c4-4f00d119e819)
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bad8216d-70a7-4878-b1a3-fcb99f1157e0)
 
 # 事前準備
+## Log Analytics ワークスペースを用意する
+- Azure Resource Graph へのアクセスは幾つかの方法が有りますが、本演習では最も簡単な Log Analytics ワークスペースから
+ - [参考情報 リソース変更を検知するアラートを作成する (Japan Azure Monitoring Support Blog)](https://jpazmon-integ.github.io/blog/ame/HowToResourceChangeAlert/)
+ - [クイックスタート: Azure Resource Graph と Log Analytics を使用してアラートを作成する](https://learn.microsoft.com/ja-jp/azure/governance/resource-graph/alerts-query-quickstart?tabs=azure-resource-graph)
+
 ## 空のロジックアプリを作成する　
 - 空のロジックアプリから作成します。Sentinel のオートメーション、もしくはロジックアプリから作成して下さい。
 ![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/99089e58-8f74-4e19-a080-a2626e386c21)
@@ -15,66 +20,73 @@ Defender XDR のハンティングクエリーを実行するロジックアプ�
 <img width="1074" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/6ad559fc-0c9d-4994-85df-80cf786d629a">
 
 # ロジックアプリの編集
-## 1. ロジックアプリに「Defender ATP」コネクタを追加する
-- ロジックアプリのフロー Defender XDR コネクタを追加します。<BR>
-<img width="897" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/28d2e721-4f75-400a-a06a-f994886c8e33"><BR>
-- 「**詳細な検索**」を選択します
+## 1. ロジックアプリに「Azure Monitor ログ」コネクタを追加する
+- ロジックアプリのフローに「Azure Monitor ログ」コネクタを追加します。<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9bd3c3d4-0176-4ef6-a13f-4b24b4f35e17)<BR>
 
-> 「詳細な検索」 = Advanced Hunting を実行する標準コネクタになります
+- 「**クエリーを実行して結果を一覧表示する**」を選択します
+> V2 (プレビュー) でも同じ結果が得られます
+> 「クエリーを実行して結果を視覚化する」を選択すると、``summarize`` 機能を用いてグラフ生成が出来ます
 
 <img width="885" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/dd4b8824-8f0c-4736-bfaf-14d4d22969b1"><BR>
-- テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
-<img width="513" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/75305c0c-f2a5-4485-8d13-a862a2d4dc9d"><BR>
-- クエリー入力画面が出ればOKです<BR>
 
+- テナント接続が出てきますので、Entra ID 認証を用いて接続します<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/45376cb2-d871-4b65-9bcb-bb6e86e1ee28)<BR>
+
+- クエリー入力画面が出ればOKです<BR>
 > クエリー欄に実際に KQL を入れて結果を得ることが出来るようになりました！
 
-<img width="901" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9f6f9a6e-56b4-4c84-8555-0da4a676c8b9"><BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/598e7511-c529-4c48-ab7a-b1f11ded4cdc)<BR>
 
-## 2. Defender XDR Advanced Hunting Query を用意する
-> インシデントをトリガーにハンティングクエリーを実行します
-定期的に Defender XDR Advanced Hunting Query を実行して通知します。<BR>
+## 2. Azure Resource Graph に対して実行するクエリーを用意する
+> ARG に対してクエリーを実行します
+定期的に Azure Resource Graph に対してクエリーを実行して通知することを検討します。<BR>
 以下はサンプルなので、他に実行したいクエリーアイデアをお持ちであれば、そちらをご活用下さい！<BR>
 
-### クエリー例 1 - 脆弱性を Fix するセキュリティ更新プログラムを抽出する
- - MDTM 脆弱性情報から、高危険度の脆弱性があり、セキュリティ更新プログラムがある情報を抽出する
- - ```DeviceTvmSoftwareVulnerabilities``` [テーブル](https://learn.microsoft.com/ja-jp/azure/azure-monitor/reference/tables/devicetvmsoftwarevulnerabilities)を利用
- - 「セキュリティ更新プログラム」があるのだから、パッチ適用しようよ！をアピール
- - CVE 情報ではなく、パッチ適用を推進するための情報を抽出するイメージ
+### クエリー例 1 - Azure VM のサイズ毎の台数をレポートする
+ - Azure VM の設定サイズと台数をクエリーでレポートする
 
 ```kql
-DeviceTvmSoftwareVulnerabilities
-| where DeviceName contains "(ホスト名)"
-| where VulnerabilitySeverityLevel == @"High"
-| where RecommendedSecurityUpdate != ""
-| distinct RecommendedSecurityUpdate, RecommendedSecurityUpdateId, SoftwareVendor, SoftwareName, SoftwareVersion
+arg("").resources
+| where type =~ "Microsoft.Compute/VirtualMachines"
+| summarize count() by tostring(properties.hardwareProfile.vmSize)
+| sort by count_ desc 
 ```
-<img width="746" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c9c4b020-8406-4eec-a09e-c875810ad700">
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ec979e4f-f91c-40eb-88fb-08b3b4b35baf)
 
-### クエリー例 2 - 対象サーバーのアセット情報からソフトウェアリストを抽出する
- - MDTM 脆弱性情報から、ソフトウェアインベントリ情報を抽出する
- - ```DeviceTvmSoftwareInventory``` [テーブル](https://learn.microsoft.com/ja-jp/azure/azure-monitor/reference/tables/devicetvmsoftwareinventory)を利用
- - サーバーやクライアントを検出した際に、この端末（サーバー）はどのようなものかを判定させる
+
+### クエリー例 2 - Azure VM の OS 種別毎レポート
+ - Azure VM の設定サイズと台数をクエリーでレポートする
 
 ```kql
-DeviceTvmSoftwareInventory
-| where DeviceName contains "(ホスト名)"
-| distinct SoftwareVendor,SoftwareName,SoftwareVersion
+arg("").resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| summarize count() by tostring(properties.storageProfile.osDisk.osType)
 ```
-<img width="415" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/a2cc2da4-eb3b-4105-845d-1170b0bb7ade">
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/2725096b-22bf-45dc-a9b2-26d8a81082d2)
 
+### クエリー例 3 - 未使用のまま放置されている Public IP アドレス (PIP)
+ - 課金かかっているけど放置されている PIP の洗い出し
 
+```kql
+arg("").resources
+| where type =~ "Microsoft.Network/publicipaddresses"
+| where isnull(properties.ipConfiguration)
+```
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/13a20a0b-e35b-45ab-88a5-4b2e2c85ebda)
 
 ## 3. ロジックアプリにクエリーを設定する
-> ロジックアプリのフローから Defender XDR Advanced Hunting Query を設定しましょう
+> ロジックアプリのフローから Log Analytics ワークスペースに対してクエリーを設定しましょう
 
 - ロジックアプリのコネクタにクエリーを設定してみましょう
-- Defender XDR に対して Advanced Hunting Query を実行し、正しく動作する（結果が得られる）クエリーを投入します<p>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/bb98515f-12bc-4999-a92a-1e2a9f5c8041)
+- Azure Monitor クエリーのコネクタに対してクエリーを設定します。<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c0c3a51d-5514-40f5-92e7-e51e2a30f0a1)<BR>
+
 - 「繰り返し」の場合、ロジックアプリのテストは実行することでテストが容易に出来ます<p>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/051a56b4-56c7-4030-a6c3-2f48cb9ff371)
-- 成功すると、ロジックアプリの結果から Defender XDR のクエリー結果を得られます<p>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/88d298d7-d22c-4bd6-8ef0-d43fd2715f58)
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/653369ec-4cd7-4ae6-97be-f923bb9a6630)<BR>
+
+- 成功すると、ロジックアプリの結果から クエリー結果を得られます<p>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ab2b96fd-a03c-467a-ba15-11ff1e945518)<BR>
 
 
 ## 4. クエリー結果を成型する
@@ -86,12 +98,14 @@ DeviceTvmSoftwareInventory
 
 ### 4.1 ロジックアプリのフローに「HTML テーブルの作成」を追加する
 - ロジックアプリの追加フローボタンを押して、「ビルトイン」-> 「データ操作」から、「**HTML テーブルの作成**」を選択します
-<img width="798" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/c728cc74-8fe3-4557-afa0-e510a46b0960"><BR>
-- 前のフローで実施したクエリー結果 **Results** を反映させて、保存します。
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e02f8231-2642-4269-9f96-3763d75823cf)<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/26c9e994-e7b0-411e-9eee-9b7c50fcd48e)<BR>
+
+- 前のフローで実施したクエリー結果 **value** を反映させて、保存します。
+> value - 項目 ではないので注意して下さい！
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/916c1d45-994b-4560-bd16-313d38e1b647)<BR>
 - 一度、ロジックアプリの履歴から実行してテストして下さい。
  - クエリーは HTML テーブルに変換されましたか？
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/59cdd836-a193-4d6d-bf89-052101bc71f6)<BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/57d8eedc-f91b-495a-bee0-6168aac33395)<BR>
 
 ### 4.2 HTML テーブルをカスタマイズする
 > 美的センスを高めてカスタマイズしましょう！
@@ -99,18 +113,17 @@ DeviceTvmSoftwareInventory
 - デフォルトの設定でも自動で HTML テーブルが作成されましたが、要らないフィールドが含まれていませんか？
  - 表の項目名、せっかくなので日本語化してみましょう
 - ロジックアプリデザイナーに戻り、「HTML テーブルの作成」をカスタムに変更します<p>
-<img width="849" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9586da4e-bb16-4033-aae1-5ab574917cb8"><BR>
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/ff862d62-4f3f-4320-951b-28f5af02e9d1)<BR>
 - HTML テーブルの「カスタム」より、各表の項目名を書き換えて、必要な項目だけを抽出してみましょう<p>
-![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/5bdb53c5-c660-48d3-8c7a-815422cd197f)
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/e63b5e60-f5b4-4193-b8ef-51ba50e4b4d9)<BR>
 
 - ロジックアプリの履歴から、イベントを再送信してテストして下さい。成型した表形式に書換られたら成功です！<p>
-<img width="851" alt="image" src="https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/9d61177e-2236-4451-bfe8-f97f60651c76">
-
+![image](https://github.com/hisashin0728/SentinelSOARWorkshopJP/assets/55295601/0ee357cf-4687-4ef3-91e8-985f7e0f604a)
 
 ## 5. メール通知 or Teams 通知
 > 最後に通知してみましょう
 
-- Defender XDR に Advanced Hunting した結果を通知します
+- Log Analytics ワークスペースから Azure Resource Graph にクエリー結果を通知します
  - メールコネクタ or Teams コネクタお好きな方法を選んでください。
 
 ### 5.1 メール送信 (Office 365 コネクタ)
