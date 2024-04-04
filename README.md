@@ -10,7 +10,7 @@
 - Microsoft Sentinel の環境を自テナントに有すること
 - Microsoft Sentinel に対して、何らかの分析ルールによるアラート発砲が可能であること
   - [コンテンツハブより、「Defender XDR」コネクタをインストールして Defender XDR と接続が完了していること](https://learn.microsoft.com/ja-jp/azure/sentinel/connect-microsoft-365-defender?tabs=MDE)
-  - [Microsoft Defender for Cloud とデータコネクタを接続し、Microsoft Defender for Cloud のサンプルアラートを発砲](https://learn.microsoft.com/ja-jp/azure/defender-for-cloud/alert-validation)
+  - [Microsoft Defender for Cloud アラートを Microsoft Sentinel に取り込む](https://learn.microsoft.com/ja-jp/azure/sentinel/connect-defender-for-cloud)
   - MDE (Microsoft Defender for Endpoint) が導入された Windows / Linux より、EICAR や Test Alert を発砲
   - Microsoft Entra ID Protection による Test Alert を発砲できること
 - (**もしくは**) 既に Microsoft Sentinel のテスト環境を構築済みで、以下のようなインシデント情報を残していること
