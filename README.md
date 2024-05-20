@@ -1,5 +1,5 @@
 # はじめに
-> Microsoft Sentinel / SOAR / ロジックアプリのワークショップ
+> Microsoft Sentinel / SOAR / ロジックアプリのためのワークショップ
 
 このレポジトリは Microsoft Sentinel の SOAR 機能活用するために、ロジックアプリを勉強するためのコンテンツを提供しています。
 
