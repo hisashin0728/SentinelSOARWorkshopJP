@@ -192,8 +192,8 @@ DeviceTvmSoftwareInventory
 
 - 演習2 と同様に、得られた結果を通知しましょう!!
   - [JSON 結果を HTML に変換する](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md#4-%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%BC%E7%B5%90%E6%9E%9C%E3%82%92%E6%88%90%E5%9E%8B%E3%81%99%E3%82%8B)
-  - [O365 コネクタを用いてメール通知](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md#5-%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%9A%E7%9F%A5-or-teams-%E9%80%9A%E7%9F%A5)
-  - [Microsoft Teams コネクタを用いてチャネルに投稿](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md#5-%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%9A%E7%9F%A5-or-teams-%E9%80%9A%E7%9F%A5)
+   - [O365 コネクタを用いてメール通知](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md#51-%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
+  - [Microsoft Teams コネクタを用いてチャネルに投稿](https://github.com/hisashin0728/SentinelSOARWorkshopJP/blob/main/Work2M.md#52-microsoft-teams-%E9%80%81%E4%BF%A1-office-365-%E3%82%B3%E3%83%8D%E3%82%AF%E3%82%BF)
 
 # 振り返り
 > お疲れ様でした！
