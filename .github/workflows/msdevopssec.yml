@@ -1,25 +1,21 @@
 name: MSDO
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 jobs:
   sample:
     name: Microsoft Security DevOps
 
-    # MSDO runs on windows-latest.
-    # ubuntu-latest also supported
+    # Windows and Linux agents are supported
     runs-on: windows-latest
 
     permissions:
       contents: read
       id-token: write
       actions: read
+      # Write access for security-events is only required for customers looking for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
       security-events: write
 
     steps:
@@ -28,7 +24,7 @@ jobs:
     - uses: actions/checkout@v3
 
       # Run analyzers
-    - name: Run Microsoft Security DevOps Analysis
+    - name: Run Microsoft Security DevOps
       uses: microsoft/security-devops-action@latest
       id: msdo
     # with:
@@ -38,15 +34,15 @@ jobs:
       # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
       # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'checkov', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
 
-      # Upload alerts to the Security tab
-    - name: Upload alerts to Security tab
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+      # Upload alerts to the Security tab - required for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
+    # - name: Upload alerts to Security tab
+    #  uses: github/codeql-action/upload-sarif@v3
+    #  with:
+    #    sarif_file: ${{ steps.msdo.outputs.sarifFile }}
 
-      # Upload alerts file as a workflow artifact
-    - name: Upload alerts file as a workflow artifact
-      uses: actions/upload-artifact@v3
-      with:  
-        name: alerts
-        path: ${{ steps.msdo.outputs.sarifFile }}
+      # Upload alerts file as a workflow artifact - required for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
+    # - name: Upload alerts file as a workflow artifact
+    #  uses: actions/upload-artifact@v3
+    #  with:  
+    #    name: alerts
+    #    path: ${{ steps.msdo.outputs.sarifFile }}
